@@ -158,15 +158,6 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="ScrapeDataUTM.html">Tugas 1 Scrape Website pta.trunojoyo.ac.id with Beautiful Soap</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Tugas 2 Normalisasi text</a></li>
-
-
-
-
-
-
-
-
-
 </ul>
 
     </div>
@@ -391,18 +382,16 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Tugas 2 Normalisasi text</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#menghilangkan-tanda-baca">Menghilangkan Tanda Baca</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#word-normalizaation">Word Normalizaation</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenisasi">Tokenisasi</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#stopwords-removal">Stopwords Removal</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#stemming">STEMMING</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-extraction-dan-membentuk-vsm-dalam-term-frequency">Feature extraction dan membentuk VSM dalam term frequency</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#logarithm-frequency">Logarithm frequency</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#one-hot-encoding">one-hot encoding</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tf-idf">TF - IDF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menghilangkan-tanda-baca">Menghilangkan Tanda Baca</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#word-normalizaation">Word Normalizaation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenisasi">Tokenisasi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stopwords-removal">Stopwords Removal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stemming">STEMMING</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-extraction-dan-membentuk-vsm-dalam-term-frequency">Feature extraction dan membentuk VSM dalam term frequency</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logarithm-frequency">Logarithm frequency</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-hot-encoding">One-hot encoding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tf-idf">TF - IDF</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -486,7 +475,7 @@ Requirement already satisfied: smart-open&gt;=1.8.1 in /usr/local/lib/python3.10
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-7984f8de-6d64-4c36-8ba4-424db61c9951" class="colab-df-container">
+  <div id="df-2ef63bd7-8d35-4f51-9ee6-2d1023fcecd6" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -571,7 +560,7 @@ Requirement already satisfied: smart-open&gt;=1.8.1 in /usr/local/lib/python3.10
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-7984f8de-6d64-4c36-8ba4-424db61c9951')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-2ef63bd7-8d35-4f51-9ee6-2d1023fcecd6')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -623,12 +612,12 @@ Requirement already satisfied: smart-open&gt;=1.8.1 in /usr/local/lib/python3.10
 
     <script>
       const buttonEl =
-        document.querySelector('#df-7984f8de-6d64-4c36-8ba4-424db61c9951 button.colab-df-convert');
+        document.querySelector('#df-2ef63bd7-8d35-4f51-9ee6-2d1023fcecd6 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-7984f8de-6d64-4c36-8ba4-424db61c9951');
+        const element = document.querySelector('#df-2ef63bd7-8d35-4f51-9ee6-2d1023fcecd6');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -670,9 +659,8 @@ Requirement already satisfied: smart-open&gt;=1.8.1 in /usr/local/lib/python3.10
 </div>
 </div>
 </div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="menghilangkan-tanda-baca">
-<h1>Menghilangkan Tanda Baca<a class="headerlink" href="#menghilangkan-tanda-baca" title="Permalink to this heading">#</a></h1>
+<section id="menghilangkan-tanda-baca">
+<h2>Menghilangkan Tanda Baca<a class="headerlink" href="#menghilangkan-tanda-baca" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">remove_tanda_baca</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
@@ -711,8 +699,8 @@ Name: Abstrak, dtype: object
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="word-normalizaation">
-<h1>Word Normalizaation<a class="headerlink" href="#word-normalizaation" title="Permalink to this heading">#</a></h1>
+<section id="word-normalizaation">
+<h2>Word Normalizaation<a class="headerlink" href="#word-normalizaation" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#proses menghilangkan angka</span>
@@ -769,8 +757,8 @@ Name: Abstrak, Length: 828, dtype: object
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="tokenisasi">
-<h1>Tokenisasi<a class="headerlink" href="#tokenisasi" title="Permalink to this heading">#</a></h1>
+<section id="tokenisasi">
+<h2>Tokenisasi<a class="headerlink" href="#tokenisasi" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#proses tokenisasi</span>
@@ -903,8 +891,8 @@ Name: comment_normalize, dtype: object
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="stopwords-removal">
-<h1>Stopwords Removal<a class="headerlink" href="#stopwords-removal" title="Permalink to this heading">#</a></h1>
+<section id="stopwords-removal">
+<h2>Stopwords Removal<a class="headerlink" href="#stopwords-removal" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Stopword Removal</span>
@@ -1016,8 +1004,8 @@ Name: stopwords_removal_final, dtype: object
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="stemming">
-<h1>STEMMING<a class="headerlink" href="#stemming" title="Permalink to this heading">#</a></h1>
+<section id="stemming">
+<h2>STEMMING<a class="headerlink" href="#stemming" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#proses stem</span>
@@ -6673,8 +6661,8 @@ Name: stemming, Length: 828, dtype: object
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="feature-extraction-dan-membentuk-vsm-dalam-term-frequency">
-<h1>Feature extraction dan membentuk VSM dalam term frequency<a class="headerlink" href="#feature-extraction-dan-membentuk-vsm-dalam-term-frequency" title="Permalink to this heading">#</a></h1>
+<section id="feature-extraction-dan-membentuk-vsm-dalam-term-frequency">
+<h2>Feature extraction dan membentuk VSM dalam term frequency<a class="headerlink" href="#feature-extraction-dan-membentuk-vsm-dalam-term-frequency" title="Permalink to this heading">#</a></h2>
 <p>mengambil dokumen atau teks, melakukan ekstraksi fitur dengan menghitung frekuensi kemunculan kata-kata (TF) dalam dokumen, dan kemudian merepresentasikan dokumen-dokumen tersebut dalam bentuk vektor dalam ruang VSM</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -7045,8 +7033,8 @@ Name: stemming, Length: 828, dtype: object
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="logarithm-frequency">
-<h1>Logarithm frequency<a class="headerlink" href="#logarithm-frequency" title="Permalink to this heading">#</a></h1>
+<section id="logarithm-frequency">
+<h2>Logarithm frequency<a class="headerlink" href="#logarithm-frequency" title="Permalink to this heading">#</a></h2>
 <p>Logarithm frequency adalah sebuah metode transformasi yang digunakan dalam analisis data untuk mengubah data frekuensi menjadi skala logaritma</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -7099,8 +7087,8 @@ Name: stemming, Length: 828, dtype: object
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="one-hot-encoding">
-<h1>one-hot encoding<a class="headerlink" href="#one-hot-encoding" title="Permalink to this heading">#</a></h1>
+<section id="one-hot-encoding">
+<h2>One-hot encoding<a class="headerlink" href="#one-hot-encoding" title="Permalink to this heading">#</a></h2>
 <p>One-hot encoding digunakan untuk mengubah data kategori atau kualitatif menjadi representasi biner yang dapat digunakan dalam perhitungan dan analisis statistik.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -7400,8 +7388,8 @@ Name: stemming, Length: 828, dtype: object
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="tf-idf">
-<h1>TF - IDF<a class="headerlink" href="#tf-idf" title="Permalink to this heading">#</a></h1>
+<section id="tf-idf">
+<h2>TF - IDF<a class="headerlink" href="#tf-idf" title="Permalink to this heading">#</a></h2>
 <p>TF-IDF adalah singkatan dari “Term Frequency-Inverse Document Frequency” dalam pemrosesan bahasa alami dan analisis teks. Ini adalah metode statistik yang digunakan untuk mengukur pentingnya sebuah kata atau istilah dalam suatu dokumen terhadap koleksi dokumen yang lebih besar.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -8330,6 +8318,7 @@ TF-IDF  &lt;class &#39;numpy.ndarray&#39;&gt; (828, 6112)
 </div>
 </div>
 </section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -8389,18 +8378,16 @@ TF-IDF  &lt;class &#39;numpy.ndarray&#39;&gt; (828, 6112)
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Tugas 2 Normalisasi text</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#menghilangkan-tanda-baca">Menghilangkan Tanda Baca</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#word-normalizaation">Word Normalizaation</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenisasi">Tokenisasi</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#stopwords-removal">Stopwords Removal</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#stemming">STEMMING</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-extraction-dan-membentuk-vsm-dalam-term-frequency">Feature extraction dan membentuk VSM dalam term frequency</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#logarithm-frequency">Logarithm frequency</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#one-hot-encoding">one-hot encoding</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tf-idf">TF - IDF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menghilangkan-tanda-baca">Menghilangkan Tanda Baca</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#word-normalizaation">Word Normalizaation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenisasi">Tokenisasi</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stopwords-removal">Stopwords Removal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stemming">STEMMING</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-extraction-dan-membentuk-vsm-dalam-term-frequency">Feature extraction dan membentuk VSM dalam term frequency</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logarithm-frequency">Logarithm frequency</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-hot-encoding">One-hot encoding</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tf-idf">TF - IDF</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>
