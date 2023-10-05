@@ -397,7 +397,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="tugas-3-implementasi-latent-directlet-allocation-lda">
 <h1>Tugas 3 implementasi Latent Directlet allocation (LDA)<a class="headerlink" href="#tugas-3-implementasi-latent-directlet-allocation-lda" title="Permalink to this heading">#</a></h1>
-<p>Lakukan implementasi kan lda pada data abstrack:</p>
+<p>Lakukan implementasi lda pada data abstrack:</p>
 <p>dengan k=3  alhpa=0.1 beta=0.2</p>
 <p>library di scikit-learn</p>
 <p>doc_topic_prior float, default=None</p>
@@ -508,14 +508,14 @@ document.write(`
 <span class="g g-Whitespace">   </span><span class="mi">1714</span><span class="s2">         except self._error as v:</span>
 <span class="g g-Whitespace">   </span><span class="mi">1715</span><span class="s2">             self._raiseerror(v)</span>
 
-<span class="nn">../Modules/pyexpat.c</span> in <span class="ni">StartElement</span><span class="nt">()</span>
+<span class="nn">../Modules/pyexpat.c</span> in <span class="ni">EndElement</span><span class="nt">()</span>
 
-<span class="nn">/usr/lib/python3.10/xml/etree/ElementTree.py</span> in <span class="ni">_start</span><span class="nt">(self, tag, attr_list)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1647</span><span class="s2">         attrib = </span><span class="si">{}</span>
-<span class="g g-Whitespace">   </span><span class="mi">1648</span><span class="s2">         if attr_list:</span>
-<span class="ne">-&gt; </span><span class="mi">1649</span><span class="s2">             for i in range(0, len(attr_list), 2):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1650</span><span class="s2">                 attrib[fixname(attr_list[i])] = attr_list[i+1]</span>
-<span class="g g-Whitespace">   </span><span class="mi">1651</span><span class="s2">         return self.target.start(tag, attrib)</span>
+<span class="nn">/usr/lib/python3.10/xml/etree/ElementTree.py</span> in <span class="ni">handler</span><span class="nt">(tag, event, append, end)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1580</span><span class="s2">                 parser.StartElementHandler = handler</span>
+<span class="g g-Whitespace">   </span><span class="mi">1581</span><span class="s2">             elif event_name == &quot;end&quot;:</span>
+<span class="ne">-&gt; </span><span class="mi">1582</span><span class="s2">                 def handler(tag, event=event_name, append=append,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1583</span><span class="s2">                             end=self._end):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1584</span><span class="s2">                     append((event, end(tag)))</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
@@ -564,7 +564,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-4b6499d0-e52f-437b-886e-53ae3bf16560" class="colab-df-container">
+  <div id="df-630c9992-c3fa-415a-baa6-6df4ca4b580a" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -662,7 +662,7 @@ document.write(`
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-4b6499d0-e52f-437b-886e-53ae3bf16560')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-630c9992-c3fa-415a-baa6-6df4ca4b580a')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -714,12 +714,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-4b6499d0-e52f-437b-886e-53ae3bf16560 button.colab-df-convert');
+        document.querySelector('#df-630c9992-c3fa-415a-baa6-6df4ca4b580a button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-4b6499d0-e52f-437b-886e-53ae3bf16560');
+        const element = document.querySelector('#df-630c9992-c3fa-415a-baa6-6df4ca4b580a');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -739,8 +739,8 @@ document.write(`
   </div>
 
 
-<div id="df-61946148-e715-4d69-9800-40b2fb64ab24">
-  <button class="colab-df-quickchart" onclick="quickchart('df-61946148-e715-4d69-9800-40b2fb64ab24')"
+<div id="df-e0bfe7db-791a-4011-83d1-115f2755424e">
+  <button class="colab-df-quickchart" onclick="quickchart('df-e0bfe7db-791a-4011-83d1-115f2755424e')"
             title="Suggest charts."
             style="display:none;">
 
@@ -859,7 +859,7 @@ document.write(`
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-61946148-e715-4d69-9800-40b2fb64ab24 button');
+        document.querySelector('#df-e0bfe7db-791a-4011-83d1-115f2755424e button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
@@ -899,7 +899,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-f068439f-0672-439c-889a-bbca8fcf2eab" class="colab-df-container">
+  <div id="df-7f44c189-73da-4b49-8e75-4274281ac1a7" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -997,7 +997,7 @@ document.write(`
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-f068439f-0672-439c-889a-bbca8fcf2eab')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-7f44c189-73da-4b49-8e75-4274281ac1a7')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -1049,12 +1049,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-f068439f-0672-439c-889a-bbca8fcf2eab button.colab-df-convert');
+        document.querySelector('#df-7f44c189-73da-4b49-8e75-4274281ac1a7 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-f068439f-0672-439c-889a-bbca8fcf2eab');
+        const element = document.querySelector('#df-7f44c189-73da-4b49-8e75-4274281ac1a7');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1074,8 +1074,8 @@ document.write(`
   </div>
 
 
-<div id="df-e267e3d2-832a-47ba-91dd-4a00a30a86f4">
-  <button class="colab-df-quickchart" onclick="quickchart('df-e267e3d2-832a-47ba-91dd-4a00a30a86f4')"
+<div id="df-90e7889b-24dd-4df4-9f2d-cba2b8abe1ce">
+  <button class="colab-df-quickchart" onclick="quickchart('df-90e7889b-24dd-4df4-9f2d-cba2b8abe1ce')"
             title="Suggest charts."
             style="display:none;">
 
@@ -1194,7 +1194,7 @@ document.write(`
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-e267e3d2-832a-47ba-91dd-4a00a30a86f4 button');
+        document.querySelector('#df-90e7889b-24dd-4df4-9f2d-cba2b8abe1ce button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
