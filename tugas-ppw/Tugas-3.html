@@ -169,9 +169,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="ScrapeDataUTM.html">Tugas 1 Scrape Website pta.trunojoyo.ac.id with Beautiful Soap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Tugas_2.html">Tugas 2 Normalisasi text</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">UTS - implementasi Latent Directlet allocation (LDA)</a></li>
-
-
-
 </ul>
 
     </div>
@@ -396,12 +393,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">UTS - implementasi Latent Directlet allocation (LDA)</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#menggunakan-data-tf-idf-tanpa-menggunakan-lda">Menggunakan Data TF - IDF tanpa menggunakan LDA</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#topik-1-50">TOPIK 1 - 50</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menggunakan-data-tf-idf-tanpa-menggunakan-lda">Menggunakan Data TF - IDF tanpa menggunakan LDA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#topik-1-50">TOPIK 1 - 50</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -486,32 +481,53 @@ document.write(`
 <span class="g g-Whitespace">    </span><span class="mi">767</span><span class="s2">                 # pyxlsb opens two TemporaryFiles</span>
 
 <span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/io/excel/_openpyxl.py</span> in <span class="ni">get_sheet_data</span><span class="nt">(self, sheet, convert_float, file_rows_needed)</span>
+<span class="g g-Whitespace">    </span><span class="mi">613</span><span class="s2">         data: list[list[Scalar]] = []</span>
 <span class="g g-Whitespace">    </span><span class="mi">614</span><span class="s2">         last_row_with_data = -1</span>
-<span class="g g-Whitespace">    </span><span class="mi">615</span><span class="s2">         for row_number, row in enumerate(sheet.rows):</span>
-<span class="ne">--&gt; </span><span class="mi">616</span><span class="s2">             converted_row = [self._convert_cell(cell, convert_float) for cell in row]</span>
+<span class="ne">--&gt; </span><span class="mi">615</span><span class="s2">         for row_number, row in enumerate(sheet.rows):</span>
+<span class="g g-Whitespace">    </span><span class="mi">616</span><span class="s2">             converted_row = [self._convert_cell(cell, convert_float) for cell in row]</span>
 <span class="g g-Whitespace">    </span><span class="mi">617</span><span class="s2">             while converted_row and converted_row[-1] == &quot;&quot;:</span>
-<span class="g g-Whitespace">    </span><span class="mi">618</span><span class="s2">                 # trim trailing empty elements</span>
 
-<span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/io/excel/_openpyxl.py</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
-<span class="g g-Whitespace">    </span><span class="mi">614</span><span class="s2">         last_row_with_data = -1</span>
-<span class="g g-Whitespace">    </span><span class="mi">615</span><span class="s2">         for row_number, row in enumerate(sheet.rows):</span>
-<span class="ne">--&gt; </span><span class="mi">616</span><span class="s2">             converted_row = [self._convert_cell(cell, convert_float) for cell in row]</span>
-<span class="g g-Whitespace">    </span><span class="mi">617</span><span class="s2">             while converted_row and converted_row[-1] == &quot;&quot;:</span>
-<span class="g g-Whitespace">    </span><span class="mi">618</span><span class="s2">                 # trim trailing empty elements</span>
+<span class="nn">/usr/local/lib/python3.10/dist-packages/openpyxl/worksheet/_read_only.py</span> in <span class="ni">_cells_by_row</span><span class="nt">(self, min_col, min_row, max_col, max_row, values_only)</span>
+<span class="g g-Whitespace">     </span><span class="mi">79</span><span class="s2">                                  data_only=self.parent.data_only, epoch=self.parent.epoch,</span>
+<span class="g g-Whitespace">     </span><span class="mi">80</span><span class="s2">                                  date_formats=self.parent._date_formats)</span>
+<span class="ne">---&gt; </span><span class="mi">81</span><span class="s2">         for idx, row in parser.parse():</span>
+<span class="g g-Whitespace">     </span><span class="mi">82</span><span class="s2">             if max_row is not None and idx &gt; max_row:</span>
+<span class="g g-Whitespace">     </span><span class="mi">83</span><span class="s2">                 break</span>
 
-<span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/io/excel/_openpyxl.py</span> in <span class="ni">_convert_cell</span><span class="nt">(self, cell, convert_float)</span>
-<span class="g g-Whitespace">    </span><span class="mi">589</span><span class="s2">         )</span>
-<span class="g g-Whitespace">    </span><span class="mi">590</span><span class="s2"> </span>
-<span class="ne">--&gt; </span><span class="mi">591</span><span class="s2">         if cell.value is None:</span>
-<span class="g g-Whitespace">    </span><span class="mi">592</span><span class="s2">             return &quot;&quot;  # compat with xlrd</span>
-<span class="g g-Whitespace">    </span><span class="mi">593</span><span class="s2">         elif cell.data_type == TYPE_ERROR:</span>
+<span class="nn">/usr/local/lib/python3.10/dist-packages/openpyxl/worksheet/_reader.py</span> in <span class="ni">parse</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">165</span><span class="s2">                 element.clear()</span>
+<span class="g g-Whitespace">    </span><span class="mi">166</span><span class="s2">             elif tag_name == ROW_TAG:</span>
+<span class="ne">--&gt; </span><span class="mi">167</span><span class="s2">                 row = self.parse_row(element)</span>
+<span class="g g-Whitespace">    </span><span class="mi">168</span><span class="s2">                 element.clear()</span>
+<span class="g g-Whitespace">    </span><span class="mi">169</span><span class="s2">                 yield row</span>
 
-<span class="nn">/usr/local/lib/python3.10/dist-packages/openpyxl/cell/read_only.py</span> in <span class="ni">value</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">106</span><span class="s2">         return self._value</span>
-<span class="g g-Whitespace">    </span><span class="mi">107</span><span class="s2"> </span>
-<span class="ne">--&gt; </span><span class="mi">108</span><span class="s2">     @property</span>
-<span class="g g-Whitespace">    </span><span class="mi">109</span><span class="s2">     def value(self):</span>
-<span class="g g-Whitespace">    </span><span class="mi">110</span><span class="s2">         return self._value</span>
+<span class="nn">/usr/local/lib/python3.10/dist-packages/openpyxl/worksheet/_reader.py</span> in <span class="ni">parse_row</span><span class="nt">(self, row)</span>
+<span class="g g-Whitespace">    </span><span class="mi">301</span><span class="s2">             self.row_dimensions[str(self.row_counter)] = attrs</span>
+<span class="g g-Whitespace">    </span><span class="mi">302</span><span class="s2"> </span>
+<span class="ne">--&gt; </span><span class="mi">303</span><span class="s2">         cells = [self.parse_cell(el) for el in row]</span>
+<span class="g g-Whitespace">    </span><span class="mi">304</span><span class="s2">         return self.row_counter, cells</span>
+<span class="g g-Whitespace">    </span><span class="mi">305</span><span class="s2"> </span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/openpyxl/worksheet/_reader.py</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
+<span class="g g-Whitespace">    </span><span class="mi">301</span><span class="s2">             self.row_dimensions[str(self.row_counter)] = attrs</span>
+<span class="g g-Whitespace">    </span><span class="mi">302</span><span class="s2"> </span>
+<span class="ne">--&gt; </span><span class="mi">303</span><span class="s2">         cells = [self.parse_cell(el) for el in row]</span>
+<span class="g g-Whitespace">    </span><span class="mi">304</span><span class="s2">         return self.row_counter, cells</span>
+<span class="g g-Whitespace">    </span><span class="mi">305</span><span class="s2"> </span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/openpyxl/worksheet/_reader.py</span> in <span class="ni">parse_cell</span><span class="nt">(self, element)</span>
+<span class="g g-Whitespace">    </span><span class="mi">200</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">201</span><span class="s2">         if coordinate:</span>
+<span class="ne">--&gt; </span><span class="mi">202</span><span class="s2">             row, column = coordinate_to_tuple(coordinate)</span>
+<span class="g g-Whitespace">    </span><span class="mi">203</span><span class="s2">             self.col_counter = column</span>
+<span class="g g-Whitespace">    </span><span class="mi">204</span><span class="s2">         else:</span>
+
+<span class="nn">/usr/local/lib/python3.10/dist-packages/openpyxl/utils/cell.py</span> in <span class="ni">coordinate_to_tuple</span><span class="nt">(coordinate)</span>
+<span class="g g-Whitespace">    </span><span class="mi">198</span><span class="s2">         if c in digits:</span>
+<span class="g g-Whitespace">    </span><span class="mi">199</span><span class="s2">             break</span>
+<span class="ne">--&gt; </span><span class="mi">200</span><span class="s2">     col = coordinate[:idx].upper()</span>
+<span class="g g-Whitespace">    </span><span class="mi">201</span><span class="s2">     row = coordinate[idx:]</span>
+<span class="g g-Whitespace">    </span><span class="mi">202</span><span class="s2">     return int(row), _COL_STRING_CACHE[col]</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
@@ -542,9 +558,8 @@ Name: Label, Length: 858, dtype: object
 </div>
 </div>
 </div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="menggunakan-data-tf-idf-tanpa-menggunakan-lda">
-<h1>Menggunakan Data TF - IDF tanpa menggunakan LDA<a class="headerlink" href="#menggunakan-data-tf-idf-tanpa-menggunakan-lda" title="Permalink to this heading">#</a></h1>
+<section id="menggunakan-data-tf-idf-tanpa-menggunakan-lda">
+<h2>Menggunakan Data TF - IDF tanpa menggunakan LDA<a class="headerlink" href="#menggunakan-data-tf-idf-tanpa-menggunakan-lda" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_combined</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_tf</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Label&#39;</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -686,8 +701,8 @@ Name: Label, Length: 858, dtype: object
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="topik-1-50">
-<h1>TOPIK 1 - 50<a class="headerlink" href="#topik-1-50" title="Permalink to this heading">#</a></h1>
+<section id="topik-1-50">
+<h2>TOPIK 1 - 50<a class="headerlink" href="#topik-1-50" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">LatentDirichletAllocation</span>
@@ -1382,11 +1397,12 @@ Name: Label, Length: 858, dtype: object
 </div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="kesimpulan">
-<h1>Kesimpulan<a class="headerlink" href="#kesimpulan" title="Permalink to this heading">#</a></h1>
+<section id="kesimpulan">
+<h2>Kesimpulan<a class="headerlink" href="#kesimpulan" title="Permalink to this heading">#</a></h2>
 <p>Dari setiap komponen 1 - 50</p>
 <p>ditemukan bahwa tidak ada perubahan pada nilai akurasi, yaitu sebesar 72,39%</p>
 <p>Dan LDA dapat meningkatkan akurasi, dengan melakukan reduksi dimensi pada fitur</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1443,12 +1459,10 @@ Name: Label, Length: 858, dtype: object
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">UTS - implementasi Latent Directlet allocation (LDA)</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#menggunakan-data-tf-idf-tanpa-menggunakan-lda">Menggunakan Data TF - IDF tanpa menggunakan LDA</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#topik-1-50">TOPIK 1 - 50</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menggunakan-data-tf-idf-tanpa-menggunakan-lda">Menggunakan Data TF - IDF tanpa menggunakan LDA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#topik-1-50">TOPIK 1 - 50</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>
