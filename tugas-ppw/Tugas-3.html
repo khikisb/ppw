@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -65,6 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'tugas-ppw/Tugas-3';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Closeness centrality" href="Tugas-4.html" />
     <link rel="prev" title="Tugas 2 Normalisasi text" href="Tugas_2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -145,13 +146,14 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+  
     
     
       
     
     
-    <img src="../_static/Okhi.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/Okhi.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/Okhi.png" class="logo__image only-light" alt="Pencarian & Penambangan Web - Home"/>
+    <script>document.write(`<img src="../_static/Okhi.png" class="logo__image only-dark" alt="Pencarian & Penambangan Web - Home"/>`);</script>
   
   
 </a></div>
@@ -169,6 +171,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="ScrapeDataUTM.html">Tugas 1 Scrape Website pta.trunojoyo.ac.id with Beautiful Soap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Tugas_2.html">Tugas 2 Normalisasi text</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">UTS - implementasi Latent Directlet allocation (LDA)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tugas-4.html">Closeness centrality</a></li>
 </ul>
 
     </div>
@@ -395,6 +398,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menggunakan-data-tf-idf-tanpa-menggunakan-lda">Menggunakan Data TF - IDF tanpa menggunakan LDA</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#topik-1-50">TOPIK 1 - 50</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#save-model">Save Model</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
 </ul>
             </nav>
@@ -440,7 +444,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">KeyboardInterrupt</span>Traceback (most recent call last)
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
 <span class="nn">&lt;ipython-input-2-c9a9ac7e16ea&gt;</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">df_tf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;/content/drive/MyDrive/ppw/tugas/data-tugas/df_tf.xlsx&quot;</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">df_tf</span>
@@ -468,66 +473,68 @@ document.write(`
 
 <span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/io/excel/_base.py</span> in <span class="ni">parse</span><span class="nt">(self, sheet_name, header, names, index_col, usecols, squeeze, converters, true_values, false_values, skiprows, nrows, na_values, parse_dates, date_parser, thousands, comment, skipfooter, convert_float, mangle_dupe_cols, **kwds)</span>
 <span class="g g-Whitespace">   </span><span class="mi">1732</span>             <span class="n">DataFrame</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">passed</span> <span class="ow">in</span> <span class="n">Excel</span> <span class="n">file</span><span class="o">.</span>
-<span class="g g-Whitespace">   </span><span class="mi">1733</span>         <span class="s2">&quot;&quot;&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1734</span><span class="s2">         return self._reader.parse(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1735</span><span class="s2">             sheet_name=sheet_name,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1736</span><span class="s2">             header=header,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1733</span><span class="w">         </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="ne">-&gt; </span><span class="mi">1734</span><span class="sd">         return self._reader.parse(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1735</span><span class="sd">             sheet_name=sheet_name,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1736</span><span class="sd">             header=header,</span>
 
 <span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/io/excel/_base.py</span> in <span class="ni">parse</span><span class="nt">(self, sheet_name, header, names, index_col, usecols, squeeze, dtype, true_values, false_values, skiprows, nrows, na_values, verbose, parse_dates, date_parser, thousands, decimal, comment, skipfooter, convert_float, mangle_dupe_cols, **kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">763</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">764</span><span class="s2">             file_rows_needed = self._calc_rows(header, index_col, skiprows, nrows)</span>
-<span class="ne">--&gt; </span><span class="mi">765</span><span class="s2">             data = self.get_sheet_data(sheet, convert_float, file_rows_needed)</span>
-<span class="g g-Whitespace">    </span><span class="mi">766</span><span class="s2">             if hasattr(sheet, &quot;close&quot;):</span>
-<span class="g g-Whitespace">    </span><span class="mi">767</span><span class="s2">                 # pyxlsb opens two TemporaryFiles</span>
+<span class="g g-Whitespace">    </span><span class="mi">763</span><span class="sd"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">764</span><span class="sd">             file_rows_needed = self._calc_rows(header, index_col, skiprows, nrows)</span>
+<span class="ne">--&gt; </span><span class="mi">765</span><span class="sd">             data = self.get_sheet_data(sheet, convert_float, file_rows_needed)</span>
+<span class="g g-Whitespace">    </span><span class="mi">766</span><span class="sd">             if hasattr(sheet, &quot;close&quot;):</span>
+<span class="g g-Whitespace">    </span><span class="mi">767</span><span class="sd">                 # pyxlsb opens two TemporaryFiles</span>
 
 <span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/io/excel/_openpyxl.py</span> in <span class="ni">get_sheet_data</span><span class="nt">(self, sheet, convert_float, file_rows_needed)</span>
-<span class="g g-Whitespace">    </span><span class="mi">613</span><span class="s2">         data: list[list[Scalar]] = []</span>
-<span class="g g-Whitespace">    </span><span class="mi">614</span><span class="s2">         last_row_with_data = -1</span>
-<span class="ne">--&gt; </span><span class="mi">615</span><span class="s2">         for row_number, row in enumerate(sheet.rows):</span>
-<span class="g g-Whitespace">    </span><span class="mi">616</span><span class="s2">             converted_row = [self._convert_cell(cell, convert_float) for cell in row]</span>
-<span class="g g-Whitespace">    </span><span class="mi">617</span><span class="s2">             while converted_row and converted_row[-1] == &quot;&quot;:</span>
+<span class="g g-Whitespace">    </span><span class="mi">613</span><span class="sd">         data: list[list[Scalar]] = []</span>
+<span class="g g-Whitespace">    </span><span class="mi">614</span><span class="sd">         last_row_with_data = -1</span>
+<span class="ne">--&gt; </span><span class="mi">615</span><span class="sd">         for row_number, row in enumerate(sheet.rows):</span>
+<span class="g g-Whitespace">    </span><span class="mi">616</span><span class="sd">             converted_row = [self._convert_cell(cell, convert_float) for cell in row]</span>
+<span class="g g-Whitespace">    </span><span class="mi">617</span><span class="sd">             while converted_row and converted_row[-1] == &quot;&quot;:</span>
 
 <span class="nn">/usr/local/lib/python3.10/dist-packages/openpyxl/worksheet/_read_only.py</span> in <span class="ni">_cells_by_row</span><span class="nt">(self, min_col, min_row, max_col, max_row, values_only)</span>
-<span class="g g-Whitespace">     </span><span class="mi">79</span><span class="s2">                                  data_only=self.parent.data_only, epoch=self.parent.epoch,</span>
-<span class="g g-Whitespace">     </span><span class="mi">80</span><span class="s2">                                  date_formats=self.parent._date_formats)</span>
-<span class="ne">---&gt; </span><span class="mi">81</span><span class="s2">         for idx, row in parser.parse():</span>
-<span class="g g-Whitespace">     </span><span class="mi">82</span><span class="s2">             if max_row is not None and idx &gt; max_row:</span>
-<span class="g g-Whitespace">     </span><span class="mi">83</span><span class="s2">                 break</span>
+<span class="g g-Whitespace">     </span><span class="mi">79</span><span class="sd">                                  data_only=self.parent.data_only, epoch=self.parent.epoch,</span>
+<span class="g g-Whitespace">     </span><span class="mi">80</span><span class="sd">                                  date_formats=self.parent._date_formats)</span>
+<span class="ne">---&gt; </span><span class="mi">81</span><span class="sd">         for idx, row in parser.parse():</span>
+<span class="g g-Whitespace">     </span><span class="mi">82</span><span class="sd">             if max_row is not None and idx &gt; max_row:</span>
+<span class="g g-Whitespace">     </span><span class="mi">83</span><span class="sd">                 break</span>
 
 <span class="nn">/usr/local/lib/python3.10/dist-packages/openpyxl/worksheet/_reader.py</span> in <span class="ni">parse</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">165</span><span class="s2">                 element.clear()</span>
-<span class="g g-Whitespace">    </span><span class="mi">166</span><span class="s2">             elif tag_name == ROW_TAG:</span>
-<span class="ne">--&gt; </span><span class="mi">167</span><span class="s2">                 row = self.parse_row(element)</span>
-<span class="g g-Whitespace">    </span><span class="mi">168</span><span class="s2">                 element.clear()</span>
-<span class="g g-Whitespace">    </span><span class="mi">169</span><span class="s2">                 yield row</span>
+<span class="g g-Whitespace">    </span><span class="mi">154</span><span class="sd">         it = iterparse(self.source) # add a finaliser to close the source when this becomes possible</span>
+<span class="g g-Whitespace">    </span><span class="mi">155</span><span class="sd"> </span>
+<span class="ne">--&gt; </span><span class="mi">156</span><span class="sd">         for _, element in it:</span>
+<span class="g g-Whitespace">    </span><span class="mi">157</span><span class="sd">             tag_name = element.tag</span>
+<span class="g g-Whitespace">    </span><span class="mi">158</span><span class="sd">             if tag_name in dispatcher:</span>
 
-<span class="nn">/usr/local/lib/python3.10/dist-packages/openpyxl/worksheet/_reader.py</span> in <span class="ni">parse_row</span><span class="nt">(self, row)</span>
-<span class="g g-Whitespace">    </span><span class="mi">301</span><span class="s2">             self.row_dimensions[str(self.row_counter)] = attrs</span>
-<span class="g g-Whitespace">    </span><span class="mi">302</span><span class="s2"> </span>
-<span class="ne">--&gt; </span><span class="mi">303</span><span class="s2">         cells = [self.parse_cell(el) for el in row]</span>
-<span class="g g-Whitespace">    </span><span class="mi">304</span><span class="s2">         return self.row_counter, cells</span>
-<span class="g g-Whitespace">    </span><span class="mi">305</span><span class="s2"> </span>
+<span class="nn">/usr/lib/python3.10/xml/etree/ElementTree.py</span> in <span class="ni">iterator</span><span class="nt">(source)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1256</span><span class="sd">                 if not data:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1257</span><span class="sd">                     break</span>
+<span class="ne">-&gt; </span><span class="mi">1258</span><span class="sd">                 pullparser.feed(data)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1259</span><span class="sd">             root = pullparser._close_and_return_root()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1260</span><span class="sd">             yield from pullparser.read_events()</span>
 
-<span class="nn">/usr/local/lib/python3.10/dist-packages/openpyxl/worksheet/_reader.py</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
-<span class="g g-Whitespace">    </span><span class="mi">301</span><span class="s2">             self.row_dimensions[str(self.row_counter)] = attrs</span>
-<span class="g g-Whitespace">    </span><span class="mi">302</span><span class="s2"> </span>
-<span class="ne">--&gt; </span><span class="mi">303</span><span class="s2">         cells = [self.parse_cell(el) for el in row]</span>
-<span class="g g-Whitespace">    </span><span class="mi">304</span><span class="s2">         return self.row_counter, cells</span>
-<span class="g g-Whitespace">    </span><span class="mi">305</span><span class="s2"> </span>
+<span class="nn">/usr/lib/python3.10/xml/etree/ElementTree.py</span> in <span class="ni">feed</span><span class="nt">(self, data)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1294</span><span class="sd">         if data:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1295</span><span class="sd">             try:</span>
+<span class="ne">-&gt; </span><span class="mi">1296</span><span class="sd">                 self._parser.feed(data)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1297</span><span class="sd">             except SyntaxError as exc:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1298</span><span class="sd">                 self._events_queue.append(exc)</span>
 
-<span class="nn">/usr/local/lib/python3.10/dist-packages/openpyxl/worksheet/_reader.py</span> in <span class="ni">parse_cell</span><span class="nt">(self, element)</span>
-<span class="g g-Whitespace">    </span><span class="mi">200</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">201</span><span class="s2">         if coordinate:</span>
-<span class="ne">--&gt; </span><span class="mi">202</span><span class="s2">             row, column = coordinate_to_tuple(coordinate)</span>
-<span class="g g-Whitespace">    </span><span class="mi">203</span><span class="s2">             self.col_counter = column</span>
-<span class="g g-Whitespace">    </span><span class="mi">204</span><span class="s2">         else:</span>
+<span class="nn">/usr/lib/python3.10/xml/etree/ElementTree.py</span> in <span class="ni">feed</span><span class="nt">(self, data)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1711</span><span class="sd">         &quot;&quot;&quot;</span><span class="n">Feed</span> <span class="n">encoded</span> <span class="n">data</span> <span class="n">to</span> <span class="n">parser</span><span class="o">.</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1712</span><span class="s2">         try:</span>
+<span class="ne">-&gt; </span><span class="mi">1713</span><span class="s2">             self.parser.Parse(data, False)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1714</span><span class="s2">         except self._error as v:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1715</span><span class="s2">             self._raiseerror(v)</span>
 
-<span class="nn">/usr/local/lib/python3.10/dist-packages/openpyxl/utils/cell.py</span> in <span class="ni">coordinate_to_tuple</span><span class="nt">(coordinate)</span>
-<span class="g g-Whitespace">    </span><span class="mi">198</span><span class="s2">         if c in digits:</span>
-<span class="g g-Whitespace">    </span><span class="mi">199</span><span class="s2">             break</span>
-<span class="ne">--&gt; </span><span class="mi">200</span><span class="s2">     col = coordinate[:idx].upper()</span>
-<span class="g g-Whitespace">    </span><span class="mi">201</span><span class="s2">     row = coordinate[idx:]</span>
-<span class="g g-Whitespace">    </span><span class="mi">202</span><span class="s2">     return int(row), _COL_STRING_CACHE[col]</span>
+<span class="nn">../Modules/pyexpat.c</span> in <span class="ni">StartElement</span><span class="nt">()</span>
+
+<span class="nn">/usr/lib/python3.10/xml/etree/ElementTree.py</span> in <span class="ni">_start</span><span class="nt">(self, tag, attr_list)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1644</span><span class="s2">         # attribute name,value.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1645</span><span class="s2">         fixname = self._fixname</span>
+<span class="ne">-&gt; </span><span class="mi">1646</span><span class="s2">         tag = fixname(tag)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1647</span><span class="s2">         attrib = </span><span class="si">{}</span>
+<span class="g g-Whitespace">   </span><span class="mi">1648</span><span class="s2">         if attr_list:</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
@@ -735,7 +742,7 @@ Name: Label, Length: 858, dtype: object
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-a9ad786c-cf52-447e-b438-d6658eba1e87" class="colab-df-container">
+  <div id="df-cd6c7eda-4ca8-47e0-849d-e51493a8489f" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1049,7 +1056,7 @@ Name: Label, Length: 858, dtype: object
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-a9ad786c-cf52-447e-b438-d6658eba1e87')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-cd6c7eda-4ca8-47e0-849d-e51493a8489f')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -1101,12 +1108,12 @@ Name: Label, Length: 858, dtype: object
 
     <script>
       const buttonEl =
-        document.querySelector('#df-a9ad786c-cf52-447e-b438-d6658eba1e87 button.colab-df-convert');
+        document.querySelector('#df-cd6c7eda-4ca8-47e0-849d-e51493a8489f button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-a9ad786c-cf52-447e-b438-d6658eba1e87');
+        const element = document.querySelector('#df-cd6c7eda-4ca8-47e0-849d-e51493a8489f');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1126,8 +1133,8 @@ Name: Label, Length: 858, dtype: object
   </div>
 
 
-<div id="df-703d6cad-64fc-48e4-8165-8bb02eb84d21">
-  <button class="colab-df-quickchart" onclick="quickchart('df-703d6cad-64fc-48e4-8165-8bb02eb84d21')"
+<div id="df-b7b73f3e-a6b6-45c1-a8b4-66ea37dca32f">
+  <button class="colab-df-quickchart" onclick="quickchart('df-b7b73f3e-a6b6-45c1-a8b4-66ea37dca32f')"
             title="Suggest charts."
             style="display:none;">
 
@@ -1246,7 +1253,7 @@ Name: Label, Length: 858, dtype: object
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-703d6cad-64fc-48e4-8165-8bb02eb84d21 button');
+        document.querySelector('#df-b7b73f3e-a6b6-45c1-a8b4-66ea37dca32f button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
@@ -1397,6 +1404,26 @@ Name: Label, Length: 858, dtype: object
 </div>
 </div>
 </section>
+<section id="save-model">
+<h2>Save Model<a class="headerlink" href="#save-model" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">joblib</span>
+
+<span class="n">model_file_path</span> <span class="o">=</span> <span class="s1">&#39;/content/drive/MyDrive/ppw/tugas/tugas-ppw/naive_bayes_model.pkl&#39;</span>
+<span class="n">joblib</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">model_file_path</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Model saved to&quot;</span><span class="p">,</span> <span class="n">model_file_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model saved to /content/drive/MyDrive/ppw/tugas/tugas-ppw/naive_bayes_model.pkl
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 <section id="kesimpulan">
 <h2>Kesimpulan<a class="headerlink" href="#kesimpulan" title="Permalink to this heading">#</a></h2>
 <p>Dari setiap komponen 1 - 50</p>
@@ -1444,6 +1471,15 @@ Name: Label, Length: 858, dtype: object
         <p class="prev-next-title">Tugas 2 Normalisasi text</p>
       </div>
     </a>
+    <a class="right-next"
+       href="Tugas-4.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Closeness centrality</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -1461,6 +1497,7 @@ Name: Label, Length: 858, dtype: object
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menggunakan-data-tf-idf-tanpa-menggunakan-lda">Menggunakan Data TF - IDF tanpa menggunakan LDA</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#topik-1-50">TOPIK 1 - 50</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#save-model">Save Model</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
 </ul>
   </nav></div>
@@ -1509,8 +1546,8 @@ By Okhi Sahrul Barkah
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
 
   <footer class="bd-footer">
   </footer>
