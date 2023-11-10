@@ -171,6 +171,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="Tugas_2.html">Tugas 2 Normalisasi text</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Tugas-3.html">UTS - implementasi Latent Directlet allocation (LDA)</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Closeness centrality</a></li>
+
 </ul>
 
     </div>
@@ -395,6 +396,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Closeness centrality</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-1-crawl-data-judul-berita-dan-isi-berita-dari-https-okezone-com">Langkah 1: Crawl data judul berita dan isi berita dari https://okezone.com/</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sport">Sport</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finance">Finance</a></li>
@@ -405,7 +407,20 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-4-cosine-similarity">Langkah 4: Cosine Similarity</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-5-graph">Langkah 5: Graph</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-6-closeness-centrality">Langkah 6: Closeness Centrality</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ringkas-semua-isi-berita">Ringkas Semua Isi Berita</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lda">LDA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#naive-bayes">Naive bayes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-knn">Metode KNN</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-decission-tree">Metode Decission Tree</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tanpa-lda">Tanpa LDA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Naive Bayes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Metode KNN</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Metode Decission Tree</a></li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -428,6 +443,8 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span><span class="p">,</span> <span class="n">timedelta</span>
+
 
 <span class="k">def</span> <span class="nf">get_article_content</span><span class="p">(</span><span class="n">article_url</span><span class="p">):</span>
     <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">article_url</span><span class="p">)</span>
@@ -475,24 +492,24 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-1-34b293e8c245&gt;</span> in <span class="ni">&lt;cell line: 44&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">42</span> <span class="n">end_date</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">2023</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">43</span> 
-<span class="ne">---&gt; </span><span class="mi">44</span> <span class="n">news_data</span> <span class="o">=</span> <span class="n">scrape_news_data</span><span class="p">(</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">)</span>
+<span class="nn">&lt;ipython-input-1-a5f7cff06316&gt;</span> in <span class="ni">&lt;cell line: 46&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">44</span> <span class="n">end_date</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">2023</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">45</span> 
+<span class="ne">---&gt; </span><span class="mi">46</span> <span class="n">news_data</span> <span class="o">=</span> <span class="n">scrape_news_data</span><span class="p">(</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">)</span>
 
-<span class="nn">&lt;ipython-input-1-34b293e8c245&gt;</span> in <span class="ni">scrape_news_data</span><span class="nt">(start_date, end_date)</span>
-<span class="g g-Whitespace">     </span><span class="mi">28</span>                 <span class="n">title</span> <span class="o">=</span> <span class="n">element</span><span class="o">.</span><span class="n">a</span><span class="o">.</span><span class="n">text</span>
-<span class="g g-Whitespace">     </span><span class="mi">29</span>                 <span class="n">article_url</span> <span class="o">=</span> <span class="n">element</span><span class="o">.</span><span class="n">a</span><span class="p">[</span><span class="s1">&#39;href&#39;</span><span class="p">]</span>
-<span class="ne">---&gt; </span><span class="mi">30</span>                 <span class="n">content</span> <span class="o">=</span> <span class="n">get_article_content</span><span class="p">(</span><span class="n">article_url</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">31</span> 
-<span class="g g-Whitespace">     </span><span class="mi">32</span>                 <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;Date&#39;</span><span class="p">:</span> <span class="n">current_date</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">-%m-%Y&#39;</span><span class="p">),</span> <span class="s1">&#39;Title&#39;</span><span class="p">:</span> <span class="n">title</span><span class="p">,</span> <span class="s1">&#39;Content&#39;</span><span class="p">:</span> <span class="n">content</span><span class="p">})</span>
+<span class="nn">&lt;ipython-input-1-a5f7cff06316&gt;</span> in <span class="ni">scrape_news_data</span><span class="nt">(start_date, end_date)</span>
+<span class="g g-Whitespace">     </span><span class="mi">30</span>                 <span class="n">title</span> <span class="o">=</span> <span class="n">element</span><span class="o">.</span><span class="n">a</span><span class="o">.</span><span class="n">text</span>
+<span class="g g-Whitespace">     </span><span class="mi">31</span>                 <span class="n">article_url</span> <span class="o">=</span> <span class="n">element</span><span class="o">.</span><span class="n">a</span><span class="p">[</span><span class="s1">&#39;href&#39;</span><span class="p">]</span>
+<span class="ne">---&gt; </span><span class="mi">32</span>                 <span class="n">content</span> <span class="o">=</span> <span class="n">get_article_content</span><span class="p">(</span><span class="n">article_url</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">33</span> 
+<span class="g g-Whitespace">     </span><span class="mi">34</span>                 <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;Date&#39;</span><span class="p">:</span> <span class="n">current_date</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">-%m-%Y&#39;</span><span class="p">),</span> <span class="s1">&#39;Title&#39;</span><span class="p">:</span> <span class="n">title</span><span class="p">,</span> <span class="s1">&#39;Content&#39;</span><span class="p">:</span> <span class="n">content</span><span class="p">})</span>
 
-<span class="nn">&lt;ipython-input-1-34b293e8c245&gt;</span> in <span class="ni">get_article_content</span><span class="nt">(article_url)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> 
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="k">def</span> <span class="nf">get_article_content</span><span class="p">(</span><span class="n">article_url</span><span class="p">):</span>
-<span class="ne">----&gt; </span><span class="mi">6</span>     <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">article_url</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span>     <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span>         <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+<span class="nn">&lt;ipython-input-1-a5f7cff06316&gt;</span> in <span class="ni">get_article_content</span><span class="nt">(article_url)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> 
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="k">def</span> <span class="nf">get_article_content</span><span class="p">(</span><span class="n">article_url</span><span class="p">):</span>
+<span class="ne">----&gt; </span><span class="mi">8</span>     <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">article_url</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span>         <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
 
 <span class="nn">/usr/local/lib/python3.10/dist-packages/requests/api.py</span> in <span class="ni">get</span><span class="nt">(url, params, **kwargs)</span>
 <span class="g g-Whitespace">     </span><span class="mi">71</span>     <span class="s2">&quot;&quot;&quot;</span>
@@ -2485,7 +2502,7 @@ Name: Content, Length: 992, dtype: object
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-5eb80d89-d7c3-413b-843e-0f70c62a249f" class="colab-df-container">
+  <div id="df-5ffb6b3f-3a4f-400e-90f4-b40452995cd6" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -2595,7 +2612,7 @@ Name: Content, Length: 992, dtype: object
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-5eb80d89-d7c3-413b-843e-0f70c62a249f')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-5ffb6b3f-3a4f-400e-90f4-b40452995cd6')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -2647,12 +2664,12 @@ Name: Content, Length: 992, dtype: object
 
     <script>
       const buttonEl =
-        document.querySelector('#df-5eb80d89-d7c3-413b-843e-0f70c62a249f button.colab-df-convert');
+        document.querySelector('#df-5ffb6b3f-3a4f-400e-90f4-b40452995cd6 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-5eb80d89-d7c3-413b-843e-0f70c62a249f');
+        const element = document.querySelector('#df-5ffb6b3f-3a4f-400e-90f4-b40452995cd6');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -2672,8 +2689,8 @@ Name: Content, Length: 992, dtype: object
   </div>
 
 
-<div id="df-99e00f78-4d8a-43a9-bef4-dda46f38668e">
-  <button class="colab-df-quickchart" onclick="quickchart('df-99e00f78-4d8a-43a9-bef4-dda46f38668e')"
+<div id="df-6e408b4c-8108-4455-b45d-14c32b01fa54">
+  <button class="colab-df-quickchart" onclick="quickchart('df-6e408b4c-8108-4455-b45d-14c32b01fa54')"
             title="Suggest charts"
             style="display:none;">
 
@@ -2792,7 +2809,7 @@ Name: Content, Length: 992, dtype: object
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-99e00f78-4d8a-43a9-bef4-dda46f38668e button');
+        document.querySelector('#df-6e408b4c-8108-4455-b45d-14c32b01fa54 button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
@@ -2801,44 +2818,6 @@ Name: Content, Length: 992, dtype: object
     </div>
   </div>
 </div></div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#install library</span>
-<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>sastrawi
-<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>swifter
-<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>gensim
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: sastrawi in /usr/local/lib/python3.10/dist-packages (1.0.1)
-Requirement already satisfied: swifter in /usr/local/lib/python3.10/dist-packages (1.4.0)
-Requirement already satisfied: pandas&gt;=1.0.0 in /usr/local/lib/python3.10/dist-packages (from swifter) (1.5.3)
-Requirement already satisfied: psutil&gt;=5.6.6 in /usr/local/lib/python3.10/dist-packages (from swifter) (5.9.5)
-Requirement already satisfied: dask[dataframe]&gt;=2.10.0 in /usr/local/lib/python3.10/dist-packages (from swifter) (2023.8.1)
-Requirement already satisfied: tqdm&gt;=4.33.0 in /usr/local/lib/python3.10/dist-packages (from swifter) (4.66.1)
-Requirement already satisfied: click&gt;=8.0 in /usr/local/lib/python3.10/dist-packages (from dask[dataframe]&gt;=2.10.0-&gt;swifter) (8.1.7)
-Requirement already satisfied: cloudpickle&gt;=1.5.0 in /usr/local/lib/python3.10/dist-packages (from dask[dataframe]&gt;=2.10.0-&gt;swifter) (2.2.1)
-Requirement already satisfied: fsspec&gt;=2021.09.0 in /usr/local/lib/python3.10/dist-packages (from dask[dataframe]&gt;=2.10.0-&gt;swifter) (2023.6.0)
-Requirement already satisfied: packaging&gt;=20.0 in /usr/local/lib/python3.10/dist-packages (from dask[dataframe]&gt;=2.10.0-&gt;swifter) (23.2)
-Requirement already satisfied: partd&gt;=1.2.0 in /usr/local/lib/python3.10/dist-packages (from dask[dataframe]&gt;=2.10.0-&gt;swifter) (1.4.1)
-Requirement already satisfied: pyyaml&gt;=5.3.1 in /usr/local/lib/python3.10/dist-packages (from dask[dataframe]&gt;=2.10.0-&gt;swifter) (6.0.1)
-Requirement already satisfied: toolz&gt;=0.10.0 in /usr/local/lib/python3.10/dist-packages (from dask[dataframe]&gt;=2.10.0-&gt;swifter) (0.12.0)
-Requirement already satisfied: importlib-metadata&gt;=4.13.0 in /usr/local/lib/python3.10/dist-packages (from dask[dataframe]&gt;=2.10.0-&gt;swifter) (6.8.0)
-Requirement already satisfied: python-dateutil&gt;=2.8.1 in /usr/local/lib/python3.10/dist-packages (from pandas&gt;=1.0.0-&gt;swifter) (2.8.2)
-Requirement already satisfied: pytz&gt;=2020.1 in /usr/local/lib/python3.10/dist-packages (from pandas&gt;=1.0.0-&gt;swifter) (2023.3.post1)
-Requirement already satisfied: numpy&gt;=1.21.0 in /usr/local/lib/python3.10/dist-packages (from pandas&gt;=1.0.0-&gt;swifter) (1.23.5)
-Requirement already satisfied: zipp&gt;=0.5 in /usr/local/lib/python3.10/dist-packages (from importlib-metadata&gt;=4.13.0-&gt;dask[dataframe]&gt;=2.10.0-&gt;swifter) (3.17.0)
-Requirement already satisfied: locket in /usr/local/lib/python3.10/dist-packages (from partd&gt;=1.2.0-&gt;dask[dataframe]&gt;=2.10.0-&gt;swifter) (1.0.0)
-Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.10/dist-packages (from python-dateutil&gt;=2.8.1-&gt;pandas&gt;=1.0.0-&gt;swifter) (1.16.0)
-Requirement already satisfied: gensim in /usr/local/lib/python3.10/dist-packages (4.3.2)
-Requirement already satisfied: numpy&gt;=1.18.5 in /usr/local/lib/python3.10/dist-packages (from gensim) (1.23.5)
-Requirement already satisfied: scipy&gt;=1.7.0 in /usr/local/lib/python3.10/dist-packages (from gensim) (1.11.3)
-Requirement already satisfied: smart-open&gt;=1.8.1 in /usr/local/lib/python3.10/dist-packages (from gensim) (6.4.0)
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2856,7 +2835,7 @@ Requirement already satisfied: smart-open&gt;=1.8.1 in /usr/local/lib/python3.10
 
 <span class="c1"># Meringkas teks dengan mengekstrak kalimat-kalimat utama</span>
 <span class="n">kalimat_utama</span> <span class="o">=</span> <span class="p">[</span><span class="n">kalimat</span><span class="o">.</span><span class="n">text</span> <span class="k">for</span> <span class="n">kalimat</span> <span class="ow">in</span> <span class="n">doc</span><span class="o">.</span><span class="n">sents</span><span class="p">]</span>
-<span class="n">ringkasan</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">kalimat_utama</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>  <span class="c1"># Mengambil dua kalimat pertama sebagai ringkasan</span>
+<span class="n">ringkasan</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">kalimat_utama</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
 
 <span class="c1"># Cetak ringkasan</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">ringkasan</span><span class="p">)</span>
@@ -2874,6 +2853,22 @@ Requirement already satisfied: smart-open&gt;=1.8.1 in /usr/local/lib/python3.10
 <h2>Langkah 3: TF IDF<a class="headerlink" href="#langkah-3-tf-idf" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt&#39;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">nltk.tokenize</span> <span class="kn">import</span> <span class="n">sent_tokenize</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package punkt to /root/nltk_data...
+[nltk_data]   Unzipping tokenizers/punkt.zip.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kalimat</span> <span class="o">=</span> <span class="n">nltk</span><span class="o">.</span><span class="n">sent_tokenize</span><span class="p">(</span><span class="n">ringkasan</span><span class="p">)</span>
 
 <span class="n">tfidf_vectorizer</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">()</span>
@@ -2883,165 +2878,19 @@ Requirement already satisfied: smart-open&gt;=1.8.1 in /usr/local/lib/python3.10
 
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">sentence</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">kalimat</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Kalimat </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">sentence</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">term</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">terms</span><span class="p">):</span>
-        <span class="n">tfidf_value</span> <span class="o">=</span> <span class="n">tfidf_matrix</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
-        <span class="k">if</span> <span class="n">tfidf_value</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">term</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">tfidf_value</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Kalimat 1: JAKARTA - Calon Presiden Partai Perindo Ganjar Pranowo menilai pembangunan infrastruktur harus memberikan manfaat langsung terutama bagi masyarakat di daerah terdampak pembangunan.
-bagi: 0.1943
-calon: 0.2408
-daerah: 0.2408
-di: 0.1357
-ganjar: 0.1943
-harus: 0.2408
-infrastruktur: 0.1943
-jakarta: 0.2408
-langsung: 0.1943
-manfaat: 0.1943
-masyarakat: 0.1357
-memberikan: 0.1613
-menilai: 0.2408
-partai: 0.2408
-pembangunan: 0.3886
-perindo: 0.2408
-pranowo: 0.1943
-presiden: 0.2408
-terdampak: 0.1943
-terutama: 0.2408
 
 Kalimat 2: Salah satu manfaat yang secara nyata dapat dirasakan langsung bagi masyarakat dengan memberikan kepemilikan saham korporasi maupun anak usaha kepada Badan Usaha Milik Desa (BUMDes) di desa terdampak proyek infrastruktur.
-anak: 0.1579
-badan: 0.1957
-bagi: 0.1579
-bumdes: 0.1311
-dapat: 0.1957
-dengan: 0.1957
-desa: 0.3914
-di: 0.1103
-dirasakan: 0.1957
-infrastruktur: 0.1579
-kepada: 0.1311
-kepemilikan: 0.1957
-korporasi: 0.1957
-langsung: 0.1579
-manfaat: 0.1579
-masyarakat: 0.1103
-maupun: 0.1957
-memberikan: 0.1311
-milik: 0.1957
-nyata: 0.1957
-proyek: 0.1579
-saham: 0.1103
-salah: 0.1957
-satu: 0.1957
-secara: 0.1957
-terdampak: 0.1579
-usaha: 0.3158
-yang: 0.1579
 
 Kalimat 3: BACA JUGA:Ganjar Pranowo Optimistis Bawa Ekonomi Indonesia Tumbuh 7%, Ini Strateginya&quot;Kalau umpama membuat jalan tol, kita tawarkan saja, anda mau ganti rugi dibayar, atau mau dikonversi menjadi saham, sehingga demokrasi ekonominya kita berikan kepada mereka tanpa kemudian meninggalkan mereka,&quot; kata Ganjar, dalam acara Sarasehan 100 Ekonom Indonesia, Rabu (8/11/2023).Ganjar menceritakan, ketika itu ada proyek pembangunan pabrik semen di Rembang yang banyak ditentang masyarakat setempat.
-100: 0.1180
-11: 0.1180
-2023: 0.1180
-acara: 0.1180
-ada: 0.1180
-anda: 0.1180
-atau: 0.1180
-baca: 0.1180
-banyak: 0.1180
-bawa: 0.1180
-berikan: 0.1180
-dalam: 0.1180
-demokrasi: 0.1180
-di: 0.0665
-dibayar: 0.1180
-dikonversi: 0.1180
-ditentang: 0.1180
-ekonom: 0.1180
-ekonomi: 0.1180
-ekonominya: 0.1180
-ganjar: 0.2857
-ganti: 0.1180
-indonesia: 0.2361
-ini: 0.1180
-itu: 0.0952
-jalan: 0.1180
-juga: 0.1180
-kalau: 0.1180
-kata: 0.1180
-kemudian: 0.1180
-kepada: 0.0791
-ketika: 0.1180
-kita: 0.2361
-masyarakat: 0.0665
-mau: 0.2361
-membuat: 0.0952
-menceritakan: 0.1180
-meninggalkan: 0.1180
-menjadi: 0.0952
-mereka: 0.2361
-optimistis: 0.1180
-pabrik: 0.0952
-pembangunan: 0.0952
-pranowo: 0.0952
-proyek: 0.0952
-rabu: 0.1180
-rembang: 0.0952
-rugi: 0.1180
-saham: 0.0665
-saja: 0.1180
-sarasehan: 0.1180
-sehingga: 0.1180
-semen: 0.0952
-setempat: 0.1180
-strateginya: 0.1180
-tanpa: 0.1180
-tawarkan: 0.1180
-tol: 0.1180
-tumbuh: 0.1180
-umpama: 0.1180
-yang: 0.0952
 
 Kalimat 4: Namun setelah dilakukan negosiasi terhadap perusahaan untuk setidaknya memberikan saham kepada masyarakat melalui BUMDes.
-bumdes: 0.2021
-dilakukan: 0.3018
-kepada: 0.2021
-masyarakat: 0.1700
-melalui: 0.3018
-memberikan: 0.2021
-namun: 0.3018
-negosiasi: 0.3018
-perusahaan: 0.3018
-saham: 0.1700
-setelah: 0.3018
-setidaknya: 0.3018
-terhadap: 0.3018
-untuk: 0.3018
 
 Kalimat 5: Akhirnya lobi-lobi itu berhasil dan membuat 6 BUMDes di sekitar Rembang menjadi pemegang saham dari anak usaha pabrik semen tersebut.
-akhirnya: 0.2405
-anak: 0.1940
-berhasil: 0.2405
-bumdes: 0.1611
-dan: 0.2405
-dari: 0.2405
-di: 0.1355
-itu: 0.1940
-lobi: 0.4810
-membuat: 0.1940
-menjadi: 0.1940
-pabrik: 0.1940
-pemegang: 0.2405
-rembang: 0.1940
-saham: 0.1355
-sekitar: 0.2405
-semen: 0.1940
-tersebut: 0.2405
-usaha: 0.1940
 </pre></div>
 </div>
 </div>
@@ -3093,7 +2942,7 @@ Similarity Kalimat 4 dan Kalimat 5: 0.0556
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-e9db4a63-8fcb-4947-bd77-4a5cefa23c62" class="colab-df-container">
+  <div id="df-617687f7-0598-4ed6-be7b-5ca0c026e6a3" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -3166,7 +3015,7 @@ Similarity Kalimat 4 dan Kalimat 5: 0.0556
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-e9db4a63-8fcb-4947-bd77-4a5cefa23c62')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-617687f7-0598-4ed6-be7b-5ca0c026e6a3')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -3218,12 +3067,12 @@ Similarity Kalimat 4 dan Kalimat 5: 0.0556
 
     <script>
       const buttonEl =
-        document.querySelector('#df-e9db4a63-8fcb-4947-bd77-4a5cefa23c62 button.colab-df-convert');
+        document.querySelector('#df-617687f7-0598-4ed6-be7b-5ca0c026e6a3 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-e9db4a63-8fcb-4947-bd77-4a5cefa23c62');
+        const element = document.querySelector('#df-617687f7-0598-4ed6-be7b-5ca0c026e6a3');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -3243,8 +3092,8 @@ Similarity Kalimat 4 dan Kalimat 5: 0.0556
   </div>
 
 
-<div id="df-c8b6df7a-c27c-4d04-b51e-500a5d7714b8">
-  <button class="colab-df-quickchart" onclick="quickchart('df-c8b6df7a-c27c-4d04-b51e-500a5d7714b8')"
+<div id="df-97ea492f-372e-40aa-80fa-bf2d04e9579e">
+  <button class="colab-df-quickchart" onclick="quickchart('df-97ea492f-372e-40aa-80fa-bf2d04e9579e')"
             title="Suggest charts"
             style="display:none;">
 
@@ -3363,7 +3212,7 @@ Similarity Kalimat 4 dan Kalimat 5: 0.0556
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-c8b6df7a-c27c-4d04-b51e-500a5d7714b8 button');
+        document.querySelector('#df-97ea492f-372e-40aa-80fa-bf2d04e9579e button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
@@ -3398,7 +3247,7 @@ Similarity Kalimat 4 dan Kalimat 5: 0.0556
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/b29928dcb84510bf30e36c1f56587a712cbab0bce92c3379e5db17fcf054f476.png" src="../_images/b29928dcb84510bf30e36c1f56587a712cbab0bce92c3379e5db17fcf054f476.png" />
+<img alt="../_images/4b7d3a2793d1f3809cce7f1fb7e33079776b8971bf8eb75bad5967ef70f0fa99.png" src="../_images/4b7d3a2793d1f3809cce7f1fb7e33079776b8971bf8eb75bad5967ef70f0fa99.png" />
 </div>
 </div>
 </section>
@@ -3451,6 +3300,908 @@ Kalimat: Namun setelah dilakukan negosiasi terhadap perusahaan untuk setidaknya 
 </div>
 </div>
 </section>
+<section id="ringkas-semua-isi-berita">
+<h2>Ringkas Semua Isi Berita<a class="headerlink" href="#ringkas-semua-isi-berita" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">spacy</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># Memuat model bahasa Inggris spaCy</span>
+<span class="n">nlp</span> <span class="o">=</span> <span class="n">spacy</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;en_core_web_sm&quot;</span><span class="p">)</span>
+
+<span class="c1"># Inisialisasi DataFrame kosong untuk menyimpan ringkasan</span>
+<span class="n">df_ringkasan</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Ringkasan&#39;</span><span class="p">])</span>
+
+<span class="c1"># Loop untuk setiap baris data</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">992</span><span class="p">):</span>
+    <span class="c1"># Inisialisasi teks yang akan diringkas</span>
+    <span class="n">teks_ringkasan</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Content&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+    <span class="c1"># Analisis teks menggunakan spaCy</span>
+    <span class="n">doc</span> <span class="o">=</span> <span class="n">nlp</span><span class="p">(</span><span class="n">teks_ringkasan</span><span class="p">)</span>
+
+    <span class="c1"># Ambil setiap kalimat dari dokumen</span>
+    <span class="n">kalimat_utama</span> <span class="o">=</span> <span class="p">[</span><span class="n">kalimat</span><span class="o">.</span><span class="n">text</span> <span class="k">for</span> <span class="n">kalimat</span> <span class="ow">in</span> <span class="n">doc</span><span class="o">.</span><span class="n">sents</span><span class="p">]</span>
+
+    <span class="c1"># Gabungkan beberapa kalimat sesuai kebutuhan Anda</span>
+    <span class="n">jumlah_kalimat</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="n">data_ringkas</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">kalimat_utama</span><span class="p">[:</span><span class="n">jumlah_kalimat</span><span class="p">])</span>
+
+    <span class="c1"># Tambahkan ringkasan ke DataFrame</span>
+    <span class="n">df_ringkasan</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_ringkasan</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Ringkasan&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">data_ringkas</span><span class="p">]})],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_ringkasan</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-60659bdd-25d4-411c-8636-2b364ba05704" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Ringkasan</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>ASAPI Francesco Bagnaia di MotoGP Jepang 2023,...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>EKO Yuli Irawan mengucapkan permintaan maafnya...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>MOTEGI - Marc Marquez girang setelah bisa naik...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>KLASEMEN sementara perolehan medali Asian Game...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>HASIL Asian Games 2023 akan dibahas di sini. T...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>987</th>
+      <td>JAKARTA - Segini besaran uang makan dan uang l...</td>
+    </tr>
+    <tr>
+      <th>988</th>
+      <td>JAKARTA – Aturan Rancangan Peraturan Pemerinta...</td>
+    </tr>
+    <tr>
+      <th>989</th>
+      <td>JAKARTA - Menteri Pertanian Amran Sulaiman men...</td>
+    </tr>
+    <tr>
+      <th>990</th>
+      <td>JAKARTA - Calon Presiden Partai Perindo Ganjar...</td>
+    </tr>
+    <tr>
+      <th>991</th>
+      <td>JAKARTA - SKK Migas menyatakan potensi harta k...</td>
+    </tr>
+  </tbody>
+</table>
+<p>992 rows × 1 columns</p>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-60659bdd-25d4-411c-8636-2b364ba05704')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-60659bdd-25d4-411c-8636-2b364ba05704 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-60659bdd-25d4-411c-8636-2b364ba05704');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+<div id="df-6b3f5f1f-90ef-4d02-a61e-085d52c47a00">
+  <button class="colab-df-quickchart" onclick="quickchart('df-6b3f5f1f-90ef-4d02-a61e-085d52c47a00')"
+            title="Suggest charts"
+            style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+  </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+  <script>
+    async function quickchart(key) {
+      const quickchartButtonEl =
+        document.querySelector('#' + key + ' button');
+      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+      quickchartButtonEl.classList.add('colab-df-spinner');
+      try {
+        const charts = await google.colab.kernel.invokeFunction(
+            'suggestCharts', [key], {});
+      } catch (error) {
+        console.error('Error during call to suggestCharts:', error);
+      }
+      quickchartButtonEl.classList.remove('colab-df-spinner');
+      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+    }
+    (() => {
+      let quickchartButtonEl =
+        document.querySelector('#df-6b3f5f1f-90ef-4d02-a61e-085d52c47a00 button');
+      quickchartButtonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+    })();
+  </script>
+</div>
+    </div>
+  </div>
+</div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.naive_bayes</span> <span class="kn">import</span> <span class="n">GaussianNB</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Inisialisasi TfidfVectorizer</span>
+<span class="n">tfidf_vectorizer</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">()</span>
+
+<span class="c1"># Fit dan transform data ringkasan</span>
+<span class="n">tfidf_matrix</span> <span class="o">=</span> <span class="n">tfidf_vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df_ringkasan</span><span class="p">[</span><span class="s1">&#39;Ringkasan&#39;</span><span class="p">])</span>
+
+<span class="c1"># Dapatkan nama fitur (kata) yang sesuai dengan indeks matriks</span>
+<span class="n">fitur_kata</span> <span class="o">=</span> <span class="n">tfidf_vectorizer</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">()</span>
+
+<span class="c1"># Buat DataFrame untuk menyimpan hasil TF-IDF</span>
+<span class="n">df_tfidf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">tfidf_matrix</span><span class="o">.</span><span class="n">toarray</span><span class="p">(),</span> <span class="n">columns</span><span class="o">=</span><span class="n">fitur_kata</span><span class="p">)</span>
+
+<span class="c1"># Tampilkan DataFrame hasil TF-IDF</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_tfidf</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      00  000  000cc   03   04   05  065   07   08   09  ...  zhongyi  zhu  \
+0    0.0  0.0    0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  ...      0.0  0.0   
+1    0.0  0.0    0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  ...      0.0  0.0   
+2    0.0  0.0    0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  ...      0.0  0.0   
+3    0.0  0.0    0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  ...      0.0  0.0   
+4    0.0  0.0    0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  ...      0.0  0.0   
+..   ...  ...    ...  ...  ...  ...  ...  ...  ...  ...  ...      ...  ...   
+987  0.0  0.0    0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  ...      0.0  0.0   
+988  0.0  0.0    0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  ...      0.0  0.0   
+989  0.0  0.0    0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  ...      0.0  0.0   
+990  0.0  0.0    0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  ...      0.0  0.0   
+991  0.0  0.0    0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  ...      0.0  0.0   
+
+     zhuhai  zigi  zii  zilberman  zinedine  zion  zona   zu  
+0       0.0   0.0  0.0        0.0       0.0   0.0   0.0  0.0  
+1       0.0   0.0  0.0        0.0       0.0   0.0   0.0  0.0  
+2       0.0   0.0  0.0        0.0       0.0   0.0   0.0  0.0  
+3       0.0   0.0  0.0        0.0       0.0   0.0   0.0  0.0  
+4       0.0   0.0  0.0        0.0       0.0   0.0   0.0  0.0  
+..      ...   ...  ...        ...       ...   ...   ...  ...  
+987     0.0   0.0  0.0        0.0       0.0   0.0   0.0  0.0  
+988     0.0   0.0  0.0        0.0       0.0   0.0   0.0  0.0  
+989     0.0   0.0  0.0        0.0       0.0   0.0   0.0  0.0  
+990     0.0   0.0  0.0        0.0       0.0   0.0   0.0  0.0  
+991     0.0   0.0  0.0        0.0       0.0   0.0   0.0  0.0  
+
+[992 rows x 6093 columns]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="lda">
+<h2>LDA<a class="headerlink" href="#lda" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">LatentDirichletAllocation</span>
+
+<span class="n">lda</span> <span class="o">=</span> <span class="n">LatentDirichletAllocation</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">doc_topic_prior</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">topic_word_prior</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">lda_top</span> <span class="o">=</span> <span class="n">lda</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df_tfidf</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Membuat DataFrame dari hasil LDA</span>
+<span class="n">df_lda_top</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">lda_top</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Topic_1&quot;</span><span class="p">,</span> <span class="s2">&quot;Topic_2&quot;</span><span class="p">,</span> <span class="s2">&quot;Topic_3&quot;</span><span class="p">,</span> <span class="s2">&quot;Topic_4&quot;</span><span class="p">,</span> <span class="s2">&quot;Topic_5&quot;</span><span class="p">])</span>
+<span class="n">df_lda_top</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-8c989610-5b80-40d0-af74-b46d3fca8a85" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Topic_1</th>
+      <th>Topic_2</th>
+      <th>Topic_3</th>
+      <th>Topic_4</th>
+      <th>Topic_5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.020388</td>
+      <td>0.919136</td>
+      <td>0.019985</td>
+      <td>0.019923</td>
+      <td>0.020567</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.910171</td>
+      <td>0.022742</td>
+      <td>0.022260</td>
+      <td>0.022503</td>
+      <td>0.022325</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.023274</td>
+      <td>0.023159</td>
+      <td>0.022761</td>
+      <td>0.022884</td>
+      <td>0.907922</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.021853</td>
+      <td>0.021794</td>
+      <td>0.021504</td>
+      <td>0.913308</td>
+      <td>0.021541</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.025906</td>
+      <td>0.900387</td>
+      <td>0.023720</td>
+      <td>0.024484</td>
+      <td>0.025502</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>987</th>
+      <td>0.021001</td>
+      <td>0.021150</td>
+      <td>0.915716</td>
+      <td>0.021178</td>
+      <td>0.020955</td>
+    </tr>
+    <tr>
+      <th>988</th>
+      <td>0.025523</td>
+      <td>0.898007</td>
+      <td>0.025556</td>
+      <td>0.025482</td>
+      <td>0.025433</td>
+    </tr>
+    <tr>
+      <th>989</th>
+      <td>0.024780</td>
+      <td>0.900454</td>
+      <td>0.024692</td>
+      <td>0.025036</td>
+      <td>0.025039</td>
+    </tr>
+    <tr>
+      <th>990</th>
+      <td>0.019884</td>
+      <td>0.019883</td>
+      <td>0.019650</td>
+      <td>0.920857</td>
+      <td>0.019726</td>
+    </tr>
+    <tr>
+      <th>991</th>
+      <td>0.019563</td>
+      <td>0.019451</td>
+      <td>0.019557</td>
+      <td>0.019485</td>
+      <td>0.921945</td>
+    </tr>
+  </tbody>
+</table>
+<p>992 rows × 5 columns</p>
+</div>
+    <div class="colab-df-buttons">
+
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-8c989610-5b80-40d0-af74-b46d3fca8a85')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-8c989610-5b80-40d0-af74-b46d3fca8a85 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-8c989610-5b80-40d0-af74-b46d3fca8a85');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+
+
+<div id="df-4a7da3be-38c0-40fa-921c-4d08d7ca28e7">
+  <button class="colab-df-quickchart" onclick="quickchart('df-4a7da3be-38c0-40fa-921c-4d08d7ca28e7')"
+            title="Suggest charts"
+            style="display:none;">
+
+<svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+     width="24px">
+    <g>
+        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+    </g>
+</svg>
+  </button>
+
+<style>
+  .colab-df-quickchart {
+      --bg-color: #E8F0FE;
+      --fill-color: #1967D2;
+      --hover-bg-color: #E2EBFA;
+      --hover-fill-color: #174EA6;
+      --disabled-fill-color: #AAA;
+      --disabled-bg-color: #DDD;
+  }
+
+  [theme=dark] .colab-df-quickchart {
+      --bg-color: #3B4455;
+      --fill-color: #D2E3FC;
+      --hover-bg-color: #434B5C;
+      --hover-fill-color: #FFFFFF;
+      --disabled-bg-color: #3B4455;
+      --disabled-fill-color: #666;
+  }
+
+  .colab-df-quickchart {
+    background-color: var(--bg-color);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    fill: var(--fill-color);
+    height: 32px;
+    padding: 0;
+    width: 32px;
+  }
+
+  .colab-df-quickchart:hover {
+    background-color: var(--hover-bg-color);
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    fill: var(--button-hover-fill-color);
+  }
+
+  .colab-df-quickchart-complete:disabled,
+  .colab-df-quickchart-complete:disabled:hover {
+    background-color: var(--disabled-bg-color);
+    fill: var(--disabled-fill-color);
+    box-shadow: none;
+  }
+
+  .colab-df-spinner {
+    border: 2px solid var(--fill-color);
+    border-color: transparent;
+    border-bottom-color: var(--fill-color);
+    animation:
+      spin 1s steps(1) infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+      border-left-color: var(--fill-color);
+    }
+    20% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    30% {
+      border-color: transparent;
+      border-left-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+      border-right-color: var(--fill-color);
+    }
+    40% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-top-color: var(--fill-color);
+    }
+    60% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+    }
+    80% {
+      border-color: transparent;
+      border-right-color: var(--fill-color);
+      border-bottom-color: var(--fill-color);
+    }
+    90% {
+      border-color: transparent;
+      border-bottom-color: var(--fill-color);
+    }
+  }
+</style>
+
+  <script>
+    async function quickchart(key) {
+      const quickchartButtonEl =
+        document.querySelector('#' + key + ' button');
+      quickchartButtonEl.disabled = true;  // To prevent multiple clicks.
+      quickchartButtonEl.classList.add('colab-df-spinner');
+      try {
+        const charts = await google.colab.kernel.invokeFunction(
+            'suggestCharts', [key], {});
+      } catch (error) {
+        console.error('Error during call to suggestCharts:', error);
+      }
+      quickchartButtonEl.classList.remove('colab-df-spinner');
+      quickchartButtonEl.classList.add('colab-df-quickchart-complete');
+    }
+    (() => {
+      let quickchartButtonEl =
+        document.querySelector('#df-4a7da3be-38c0-40fa-921c-4d08d7ca28e7 button');
+      quickchartButtonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+    })();
+  </script>
+</div>
+    </div>
+  </div>
+</div></div>
+</div>
+</section>
+<section id="naive-bayes">
+<h2>Naive bayes<a class="headerlink" href="#naive-bayes" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Label&#39;</span><span class="p">]</span>
+<span class="n">X_train</span><span class="p">,</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_train</span><span class="p">,</span><span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">df_lda_top</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="n">NB</span> <span class="o">=</span> <span class="n">GaussianNB</span><span class="p">()</span>
+<span class="n">gaus</span><span class="o">=</span><span class="n">NB</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">gaus</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Akurasi: </span><span class="si">{</span><span class="n">accuracy</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Akurasi: 0.4371859296482412
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="metode-knn">
+<h2>Metode KNN<a class="headerlink" href="#metode-knn" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
+
+<span class="c1"># Inisialisasi KNeighborsClassifier</span>
+<span class="n">knn</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># Melatih model KNN</span>
+<span class="n">knn</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Melakukan prediksi pada data uji</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">knn</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># Mengukur akurasi model</span>
+<span class="n">akurasi</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Akurasi KNN:&quot;</span><span class="p">,</span> <span class="n">akurasi</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Akurasi KNN: 0.6532663316582915
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="metode-decission-tree">
+<h2>Metode Decission Tree<a class="headerlink" href="#metode-decission-tree" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+
+<span class="c1"># Inisialisasi DecisionTreeClassifier</span>
+<span class="n">decision_tree</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># Melatih model Decision Tree</span>
+<span class="n">decision_tree</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Melakukan prediksi pada data uji</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">decision_tree</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># Mengukur akurasi model</span>
+<span class="n">akurasi</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Akurasi Decision Tree:&quot;</span><span class="p">,</span> <span class="n">akurasi</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Akurasi Decision Tree: 0.5879396984924623
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="tanpa-lda">
+<h2>Tanpa LDA<a class="headerlink" href="#tanpa-lda" title="Permalink to this heading">#</a></h2>
+</section>
+<section id="id1">
+<h2>Naive Bayes<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Label&#39;</span><span class="p">]</span>
+<span class="n">X_train</span><span class="p">,</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_train</span><span class="p">,</span><span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">df_tfidf</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="n">NB</span> <span class="o">=</span> <span class="n">GaussianNB</span><span class="p">()</span>
+<span class="n">gaus</span><span class="o">=</span><span class="n">NB</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">gaus</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">accuracy</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Akurasi: </span><span class="si">{</span><span class="n">accuracy</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Akurasi: 0.592964824120603
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id2">
+<h2>Metode KNN<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
+
+<span class="c1"># Inisialisasi KNeighborsClassifier</span>
+<span class="n">knn</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># Melatih model KNN</span>
+<span class="n">knn</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Melakukan prediksi pada data uji</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">knn</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># Mengukur akurasi model</span>
+<span class="n">akurasi</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Akurasi KNN:&quot;</span><span class="p">,</span> <span class="n">akurasi</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Akurasi KNN: 0.7085427135678392
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id3">
+<h2>Metode Decission Tree<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
+
+<span class="c1"># Inisialisasi DecisionTreeClassifier</span>
+<span class="n">decision_tree</span> <span class="o">=</span> <span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># Melatih model Decision Tree</span>
+<span class="n">decision_tree</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Melakukan prediksi pada data uji</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">decision_tree</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="c1"># Mengukur akurasi model</span>
+<span class="n">akurasi</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Akurasi Decision Tree:&quot;</span><span class="p">,</span> <span class="n">akurasi</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Akurasi Decision Tree: 0.592964824120603
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="kesimpulan">
+<h1>Kesimpulan<a class="headerlink" href="#kesimpulan" title="Permalink to this heading">#</a></h1>
+<p>Model tertinggi menggunakan metode KNN tanpa menggunakan LDA yaitu diangka 71%</p>
+<p>Data ini tidak cocok untuk dilakukan reduksi dimensi karena alih alih menambah tingkat akurasi, ini malah menurunkan tingkat akurasi</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -3507,6 +4258,7 @@ Kalimat: Namun setelah dilakukan negosiasi terhadap perusahaan untuk setidaknya 
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Closeness centrality</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-1-crawl-data-judul-berita-dan-isi-berita-dari-https-okezone-com">Langkah 1: Crawl data judul berita dan isi berita dari https://okezone.com/</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sport">Sport</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finance">Finance</a></li>
@@ -3517,7 +4269,20 @@ Kalimat: Namun setelah dilakukan negosiasi terhadap perusahaan untuk setidaknya 
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-4-cosine-similarity">Langkah 4: Cosine Similarity</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-5-graph">Langkah 5: Graph</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#langkah-6-closeness-centrality">Langkah 6: Closeness Centrality</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ringkas-semua-isi-berita">Ringkas Semua Isi Berita</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lda">LDA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#naive-bayes">Naive bayes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-knn">Metode KNN</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-decission-tree">Metode Decission Tree</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tanpa-lda">Tanpa LDA</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Naive Bayes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Metode KNN</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Metode Decission Tree</a></li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
+</ul>
+
   </nav></div>
 
 </div></div>

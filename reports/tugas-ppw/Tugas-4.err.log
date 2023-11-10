@@ -30,7 +30,7 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-['import requests', 'from bs4 import BeautifulSoup', 'import pandas as pd', '', 'def get_article_content(article_url):']
+['import requests', 'from bs4 import BeautifulSoup', 'import pandas as pd', 'from datetime import date, timedelta', '']
 ...
 ['from datetime import date, timedelta', 'start_date = date(2023, 10, 1)', 'end_date = date(2023, 11, 1)', '', 'news_data = scrape_news_data(start_date, end_date)']
 -------------------
