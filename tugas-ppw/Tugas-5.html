@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Pre Processing &#8212; Pencarian &amp; Penambangan Web</title>
+    <title>Ekstraksi Kata Kunci pada dokumen &#8212; Pencarian &amp; Penambangan Web</title>
   
   
   
@@ -174,10 +174,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Pre Processing</a></li>
-
-
-
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Ekstraksi Kata Kunci pada dokumen</a></li>
 </ul>
 
     </div>
@@ -392,7 +389,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Pre Processing</h1>
+    <h1>Ekstraksi Kata Kunci pada dokumen</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -402,12 +399,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Pre Processing</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#stopword">Stopword</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#term-frequency">Term Frequency</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#graph">Graph</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-processing">Pre Processing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ambil-satu-data">Ambil satu data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stopword">Stopword</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#term-frequency">Term Frequency</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graph">Graph</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -418,7 +415,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="cell docutils container">
+  <section class="tex2jax_ignore mathjax_ignore" id="ekstraksi-kata-kunci-pada-dokumen">
+<h1>Ekstraksi Kata Kunci pada dokumen<a class="headerlink" href="#ekstraksi-kata-kunci-pada-dokumen" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -431,14 +430,14 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;/content/drive/MyDrive/ppw/tugas/data_tugas4/df_ringkasan.csv&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;/content/drive/MyDrive/ppw/tugas/data_tugas4/data_label_news.csv&quot;</span><span class="p">)</span>
 <span class="n">data</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-8058384c-50a9-446a-9f6c-99d7bf59643c" class="colab-df-container">
+  <div id="df-d7b4d6b2-6e67-48fd-ae22-e4eda9777182" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -457,62 +456,98 @@ document.write(`
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Ringkasan</th>
+      <th>Date</th>
+      <th>Title</th>
+      <th>Content</th>
+      <th>Label</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
+      <td>01-10-2023</td>
+      <td>Asapi Francesco Bagn...</td>
       <td>ASAPI Francesco Bagnaia di MotoGP Jepang 2023,...</td>
+      <td>Sport</td>
     </tr>
     <tr>
       <th>1</th>
+      <td>01-10-2023</td>
+      <td>Permintaan Maaf Eko ...</td>
       <td>EKO Yuli Irawan mengucapkan permintaan maafnya...</td>
+      <td>Sport</td>
     </tr>
     <tr>
       <th>2</th>
+      <td>01-10-2023</td>
+      <td>MotoGP Jepang 2023: ...</td>
       <td>MOTEGI - Marc Marquez girang setelah bisa naik...</td>
+      <td>Sport</td>
     </tr>
     <tr>
       <th>3</th>
+      <td>01-10-2023</td>
+      <td>Klasemen Sementara P...</td>
       <td>KLASEMEN sementara perolehan medali Asian Game...</td>
+      <td>Sport</td>
     </tr>
     <tr>
       <th>4</th>
+      <td>01-10-2023</td>
+      <td>Hasil Asian Games 20...</td>
       <td>HASIL Asian Games 2023 akan dibahas di sini. T...</td>
+      <td>Sport</td>
     </tr>
     <tr>
       <th>...</th>
       <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
     </tr>
     <tr>
       <th>987</th>
+      <td>01-11-2023</td>
+      <td>Segini Besaran Uang Makan dan Uang Lauk Pauk P...</td>
       <td>JAKARTA - Segini besaran uang makan dan uang l...</td>
+      <td>Politik</td>
     </tr>
     <tr>
       <th>988</th>
+      <td>01-11-2023</td>
+      <td>Aturan RPP Kesehatan Bakal Picu Peredaran Roko...</td>
       <td>JAKARTA – Aturan Rancangan Peraturan Pemerinta...</td>
+      <td>Politik</td>
     </tr>
     <tr>
       <th>989</th>
+      <td>01-11-2023</td>
+      <td>Mentan: Cukup Pakai KTP Petani Dapat Pupuk Sub...</td>
       <td>JAKARTA - Menteri Pertanian Amran Sulaiman men...</td>
+      <td>Politik</td>
     </tr>
     <tr>
       <th>990</th>
+      <td>01-11-2023</td>
+      <td>Ganjar Ingin Masyarakat Rasakan Dampak Langsun...</td>
       <td>JAKARTA - Calon Presiden Partai Perindo Ganjar...</td>
+      <td>Politik</td>
     </tr>
     <tr>
       <th>991</th>
+      <td>01-11-2023</td>
+      <td>Mengintip Harta Karun Migas di Jabanusa, Bisa ...</td>
       <td>JAKARTA - SKK Migas menyatakan potensi harta k...</td>
+      <td>Politik</td>
     </tr>
   </tbody>
 </table>
-<p>992 rows × 1 columns</p>
+<p>992 rows × 4 columns</p>
 </div>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-8058384c-50a9-446a-9f6c-99d7bf59643c')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-d7b4d6b2-6e67-48fd-ae22-e4eda9777182')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -564,12 +599,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-8058384c-50a9-446a-9f6c-99d7bf59643c button.colab-df-convert');
+        document.querySelector('#df-d7b4d6b2-6e67-48fd-ae22-e4eda9777182 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-8058384c-50a9-446a-9f6c-99d7bf59643c');
+        const element = document.querySelector('#df-d7b4d6b2-6e67-48fd-ae22-e4eda9777182');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -592,8 +627,8 @@ document.write(`
   </div>
   </div></div>
 </div>
-<section class="tex2jax_ignore mathjax_ignore" id="pre-processing">
-<h1>Pre Processing<a class="headerlink" href="#pre-processing" title="Permalink to this heading">#</a></h1>
+<section id="pre-processing">
+<h2>Pre Processing<a class="headerlink" href="#pre-processing" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
@@ -623,23 +658,19 @@ document.write(`
 </div>
 </div>
 </div>
+</section>
+<section id="ambil-satu-data">
+<h2>Ambil satu data<a class="headerlink" href="#ambil-satu-data" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Remove Puncutuation</span>
-<span class="n">clean_symbol</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">&#39;[^a-zA-Z\s]&#39;</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">clean_punct</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
-    <span class="n">text</span> <span class="o">=</span> <span class="n">clean_symbol</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-    <span class="k">return</span> <span class="n">text</span>
-<span class="c1"># Buat kolom tambahan untuk data description yang telah diremovepunctuation</span>
-<span class="n">preprocessing</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;Ringkasan&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">clean_punct</span><span class="p">)</span>
-<span class="n">clean</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">preprocessing</span><span class="p">)</span>
-<span class="n">clean</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sampel</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">sampel</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-95d96062-7f22-4b74-b780-6b61da7a7389" class="colab-df-container">
+  <div id="df-fd411f28-d43a-4c5b-8fec-9b37e17aa69c" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -658,62 +689,27 @@ document.write(`
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Ringkasan</th>
+      <th>Date</th>
+      <th>Title</th>
+      <th>Content</th>
+      <th>Label</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>asapi francesco bagnaia di motogp jepang      ...</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>eko yuli irawan mengucapkan permintaan maafnya...</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>motegi   marc marquez girang setelah bisa naik...</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>klasemen sementara perolehan medali asian game...</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>hasil asian games      akan dibahas di sini  t...</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>987</th>
-      <td>jakarta   segini besaran uang makan dan uang l...</td>
-    </tr>
-    <tr>
-      <th>988</th>
-      <td>jakarta   aturan rancangan peraturan pemerinta...</td>
-    </tr>
-    <tr>
-      <th>989</th>
-      <td>jakarta   menteri pertanian amran sulaiman men...</td>
-    </tr>
-    <tr>
-      <th>990</th>
-      <td>jakarta   calon presiden partai perindo ganjar...</td>
-    </tr>
-    <tr>
-      <th>991</th>
-      <td>jakarta   skk migas menyatakan potensi harta k...</td>
+      <td>01-10-2023</td>
+      <td>Asapi Francesco Bagn...</td>
+      <td>ASAPI Francesco Bagnaia di MotoGP Jepang 2023,...</td>
+      <td>Sport</td>
     </tr>
   </tbody>
 </table>
-<p>992 rows × 1 columns</p>
 </div>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-95d96062-7f22-4b74-b780-6b61da7a7389')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-fd411f28-d43a-4c5b-8fec-9b37e17aa69c')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -765,12 +761,141 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-95d96062-7f22-4b74-b780-6b61da7a7389 button.colab-df-convert');
+        document.querySelector('#df-fd411f28-d43a-4c5b-8fec-9b37e17aa69c button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-95d96062-7f22-4b74-b780-6b61da7a7389');
+        const element = document.querySelector('#df-fd411f28-d43a-4c5b-8fec-9b37e17aa69c');
+        const dataTable =
+          await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                    [key], {});
+        if (!dataTable) return;
+
+        const docLinkHtml = 'Like what you see? Visit the ' +
+          '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+          + ' to learn more about interactive tables.';
+        element.innerHTML = '';
+        dataTable['output_type'] = 'display_data';
+        await google.colab.output.renderOutput(dataTable, element);
+        const docLink = document.createElement('div');
+        docLink.innerHTML = docLinkHtml;
+        element.appendChild(docLink);
+      }
+    </script>
+  </div>
+  
+    </div>
+  </div>
+  </div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Remove Puncutuation</span>
+<span class="n">clean_symbol</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">&#39;[^a-zA-Z\s]&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">clean_punct</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">clean_symbol</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">text</span>
+<span class="c1"># Buat kolom tambahan untuk data description yang telah diremovepunctuation</span>
+<span class="n">preprocessing</span> <span class="o">=</span> <span class="n">sampel</span><span class="p">[</span><span class="s1">&#39;Content&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">clean_punct</span><span class="p">)</span>
+<span class="n">clean</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">preprocessing</span><span class="p">)</span>
+<span class="n">clean</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-cdfe36f9-5032-4dd5-a940-0a61fdf9ca52" class="colab-df-container">
+    <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Content</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>asapi francesco bagnaia di motogp jepang      ...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+    <div class="colab-df-buttons">
+      
+  <div class="colab-df-container">
+    <button class="colab-df-convert" onclick="convertToInteractive('df-cdfe36f9-5032-4dd5-a940-0a61fdf9ca52')"
+            title="Convert this dataframe to an interactive table."
+            style="display:none;">
+      
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960">
+    <path d="M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z"/>
+  </svg>
+    </button>
+    
+  <style>
+    .colab-df-container {
+      display:flex;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    .colab-df-buttons div {
+      margin-bottom: 4px;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+    <script>
+      const buttonEl =
+        document.querySelector('#df-cdfe36f9-5032-4dd5-a940-0a61fdf9ca52 button.colab-df-convert');
+      buttonEl.style.display =
+        google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+      async function convertToInteractive(key) {
+        const element = document.querySelector('#df-cdfe36f9-5032-4dd5-a940-0a61fdf9ca52');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -794,8 +919,8 @@ document.write(`
   </div></div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="stopword">
-<h1>Stopword<a class="headerlink" href="#stopword" title="Permalink to this heading">#</a></h1>
+<section id="stopword">
+<h2>Stopword<a class="headerlink" href="#stopword" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Unduh stop words dari nltk</span>
@@ -807,7 +932,7 @@ document.write(`
     <span class="k">return</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">filtered_words</span><span class="p">)</span>
 
 <span class="c1"># Terapkan fungsi pada kolom &#39;Kalimat&#39; dalam DataFrame</span>
-<span class="n">stopword</span> <span class="o">=</span> <span class="n">clean</span><span class="p">[</span><span class="s1">&#39;Ringkasan&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">remove_stopwords</span><span class="p">)</span>
+<span class="n">stopword</span> <span class="o">=</span> <span class="n">clean</span><span class="p">[</span><span class="s1">&#39;Content&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">remove_stopwords</span><span class="p">)</span>
 <span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">stopword</span><span class="p">)</span>
 <span class="n">df</span>
 </pre></div>
@@ -815,7 +940,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-e44e1733-d2a3-4a88-a5c8-5b4cd13531bb" class="colab-df-container">
+  <div id="df-da79f0f2-1c2e-4c94-b7b7-271ec803015d" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -834,7 +959,7 @@ document.write(`
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Ringkasan</th>
+      <th>Content</th>
     </tr>
   </thead>
   <tbody>
@@ -842,54 +967,13 @@ document.write(`
       <th>0</th>
       <td>asapi francesco bagnaia motogp jepang jorge ma...</td>
     </tr>
-    <tr>
-      <th>1</th>
-      <td>eko yuli irawan permintaan maafnya gagal sumba...</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>motegi marc marquez girang podium kalinya musi...</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>klasemen perolehan medali asian games minggu w...</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>hasil asian games dibahas timnas basket putri ...</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>987</th>
-      <td>jakarta segini besaran uang makan uang lauk pa...</td>
-    </tr>
-    <tr>
-      <th>988</th>
-      <td>jakarta aturan rancangan peraturan pemerintah ...</td>
-    </tr>
-    <tr>
-      <th>989</th>
-      <td>jakarta menteri pertanian amran sulaiman salah...</td>
-    </tr>
-    <tr>
-      <th>990</th>
-      <td>jakarta calon presiden partai perindo ganjar p...</td>
-    </tr>
-    <tr>
-      <th>991</th>
-      <td>jakarta skk migas potensi harta karun minyak g...</td>
-    </tr>
   </tbody>
 </table>
-<p>992 rows × 1 columns</p>
 </div>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-e44e1733-d2a3-4a88-a5c8-5b4cd13531bb')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-da79f0f2-1c2e-4c94-b7b7-271ec803015d')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -941,12 +1025,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-e44e1733-d2a3-4a88-a5c8-5b4cd13531bb button.colab-df-convert');
+        document.querySelector('#df-da79f0f2-1c2e-4c94-b7b7-271ec803015d button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-e44e1733-d2a3-4a88-a5c8-5b4cd13531bb');
+        const element = document.querySelector('#df-da79f0f2-1c2e-4c94-b7b7-271ec803015d');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -970,13 +1054,13 @@ document.write(`
   </div></div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="term-frequency">
-<h1>Term Frequency<a class="headerlink" href="#term-frequency" title="Permalink to this heading">#</a></h1>
+<section id="term-frequency">
+<h2>Term Frequency<a class="headerlink" href="#term-frequency" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Menghitung matriks co-occurrence dengan CountVectorizer</span>
 <span class="n">vectorizer</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">()</span>
-<span class="n">co_occurrence_matrix</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Ringkasan&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Ringkasan&#39;</span><span class="p">])</span>
+<span class="n">co_occurrence_matrix</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Content&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Content&#39;</span><span class="p">])</span>
 
 <span class="c1"># Membuat DataFrame dari matriks co-occurrence</span>
 <span class="n">df_co_occurrence</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">co_occurrence_matrix</span><span class="o">.</span><span class="n">toarray</span><span class="p">(),</span> <span class="n">columns</span><span class="o">=</span><span class="n">vectorizer</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">(),</span><span class="n">index</span><span class="o">=</span><span class="n">vectorizer</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">())</span>
@@ -986,7 +1070,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-7778f82f-212b-44d0-a7d4-9119fb63a78a" class="colab-df-container">
+  <div id="df-b020b6fd-9459-4f67-933d-87d6eabb5eb8" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1005,149 +1089,149 @@ document.write(`
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>aakarshi</th>
-      <th>aaron</th>
-      <th>abad</th>
-      <th>abadi</th>
-      <th>abdi</th>
-      <th>abdul</th>
-      <th>abdullah</th>
-      <th>abjad</th>
-      <th>abolfazl</th>
-      <th>absen</th>
+      <th>air</th>
+      <th>akrab</th>
+      <th>akun</th>
+      <th>ancaman</th>
+      <th>angka</th>
+      <th>apapun</th>
+      <th>asapi</th>
+      <th>baca</th>
+      <th>bagnaia</th>
+      <th>bahagia</th>
       <th>...</th>
-      <th>zhongyi</th>
-      <th>zhu</th>
-      <th>zhuhai</th>
-      <th>zigi</th>
-      <th>zii</th>
-      <th>zilberman</th>
-      <th>zinedine</th>
-      <th>zion</th>
-      <th>zona</th>
-      <th>zu</th>
+      <th>terpaksa</th>
+      <th>terpaut</th>
+      <th>tersisa</th>
+      <th>tim</th>
+      <th>to</th>
+      <th>up</th>
+      <th>urutan</th>
+      <th>utama</th>
+      <th>valentino</th>
+      <th>wib</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>aakarshi</th>
-      <td>1</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>aaron</th>
-      <td>1</td>
-      <td>27</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>abad</th>
-      <td>0</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>abadi</th>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>7</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>abdi</th>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <th>air</th>
       <td>64</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>72</td>
+      <td>72</td>
+      <td>48</td>
+      <td>72</td>
+      <td>56</td>
+      <td>8</td>
+      <td>112</td>
+      <td>400</td>
+      <td>72</td>
       <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>40</td>
+      <td>72</td>
+      <td>72</td>
+      <td>72</td>
+      <td>72</td>
+      <td>72</td>
+      <td>56</td>
+      <td>8</td>
+      <td>48</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>akrab</th>
+      <td>72</td>
+      <td>81</td>
+      <td>81</td>
+      <td>54</td>
+      <td>81</td>
+      <td>63</td>
+      <td>9</td>
+      <td>126</td>
+      <td>450</td>
+      <td>81</td>
+      <td>...</td>
+      <td>45</td>
+      <td>81</td>
+      <td>81</td>
+      <td>81</td>
+      <td>81</td>
+      <td>81</td>
+      <td>63</td>
+      <td>9</td>
+      <td>54</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>akun</th>
+      <td>72</td>
+      <td>81</td>
+      <td>81</td>
+      <td>54</td>
+      <td>81</td>
+      <td>63</td>
+      <td>9</td>
+      <td>126</td>
+      <td>450</td>
+      <td>81</td>
+      <td>...</td>
+      <td>45</td>
+      <td>81</td>
+      <td>81</td>
+      <td>81</td>
+      <td>81</td>
+      <td>81</td>
+      <td>63</td>
+      <td>9</td>
+      <td>54</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <th>ancaman</th>
+      <td>48</td>
+      <td>54</td>
+      <td>54</td>
+      <td>36</td>
+      <td>54</td>
+      <td>42</td>
+      <td>6</td>
+      <td>84</td>
+      <td>300</td>
+      <td>54</td>
+      <td>...</td>
+      <td>30</td>
+      <td>54</td>
+      <td>54</td>
+      <td>54</td>
+      <td>54</td>
+      <td>54</td>
+      <td>42</td>
+      <td>6</td>
+      <td>36</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>angka</th>
+      <td>72</td>
+      <td>81</td>
+      <td>81</td>
+      <td>54</td>
+      <td>81</td>
+      <td>63</td>
+      <td>9</td>
+      <td>126</td>
+      <td>450</td>
+      <td>81</td>
+      <td>...</td>
+      <td>45</td>
+      <td>81</td>
+      <td>81</td>
+      <td>81</td>
+      <td>81</td>
+      <td>81</td>
+      <td>63</td>
+      <td>9</td>
+      <td>54</td>
+      <td>9</td>
     </tr>
     <tr>
       <th>...</th>
@@ -1174,133 +1258,133 @@ document.write(`
       <td>...</td>
     </tr>
     <tr>
-      <th>zilberman</th>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <th>up</th>
+      <td>72</td>
+      <td>81</td>
+      <td>81</td>
+      <td>54</td>
+      <td>81</td>
+      <td>63</td>
+      <td>9</td>
+      <td>126</td>
+      <td>450</td>
+      <td>81</td>
       <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>4</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>45</td>
+      <td>81</td>
+      <td>81</td>
+      <td>81</td>
+      <td>81</td>
+      <td>81</td>
+      <td>63</td>
+      <td>9</td>
+      <td>54</td>
+      <td>9</td>
     </tr>
     <tr>
-      <th>zinedine</th>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <th>urutan</th>
+      <td>56</td>
+      <td>63</td>
+      <td>63</td>
+      <td>42</td>
+      <td>63</td>
+      <td>49</td>
+      <td>7</td>
+      <td>98</td>
+      <td>350</td>
+      <td>63</td>
       <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>35</td>
+      <td>63</td>
+      <td>63</td>
+      <td>63</td>
+      <td>63</td>
+      <td>63</td>
+      <td>49</td>
+      <td>7</td>
+      <td>42</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <th>utama</th>
+      <td>8</td>
+      <td>9</td>
+      <td>9</td>
+      <td>6</td>
+      <td>9</td>
+      <td>7</td>
       <td>1</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>14</td>
+      <td>50</td>
+      <td>9</td>
+      <td>...</td>
+      <td>5</td>
+      <td>9</td>
+      <td>9</td>
+      <td>9</td>
+      <td>9</td>
+      <td>9</td>
+      <td>7</td>
+      <td>1</td>
+      <td>6</td>
+      <td>1</td>
     </tr>
     <tr>
-      <th>zion</th>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <th>valentino</th>
+      <td>48</td>
+      <td>54</td>
+      <td>54</td>
+      <td>36</td>
+      <td>54</td>
+      <td>42</td>
+      <td>6</td>
+      <td>84</td>
+      <td>300</td>
+      <td>54</td>
       <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>4</td>
-      <td>0</td>
-      <td>0</td>
+      <td>30</td>
+      <td>54</td>
+      <td>54</td>
+      <td>54</td>
+      <td>54</td>
+      <td>54</td>
+      <td>42</td>
+      <td>6</td>
+      <td>36</td>
+      <td>6</td>
     </tr>
     <tr>
-      <th>zona</th>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <th>wib</th>
+      <td>8</td>
+      <td>9</td>
+      <td>9</td>
+      <td>6</td>
+      <td>9</td>
+      <td>7</td>
+      <td>1</td>
+      <td>14</td>
+      <td>50</td>
+      <td>9</td>
       <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>2</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>zu</th>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>...</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>4</td>
+      <td>5</td>
+      <td>9</td>
+      <td>9</td>
+      <td>9</td>
+      <td>9</td>
+      <td>9</td>
+      <td>7</td>
+      <td>1</td>
+      <td>6</td>
+      <td>1</td>
     </tr>
   </tbody>
 </table>
-<p>5389 rows × 5389 columns</p>
+<p>150 rows × 150 columns</p>
 </div>
     <div class="colab-df-buttons">
       
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-7778f82f-212b-44d0-a7d4-9119fb63a78a')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-b020b6fd-9459-4f67-933d-87d6eabb5eb8')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
       
@@ -1352,12 +1436,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-7778f82f-212b-44d0-a7d4-9119fb63a78a button.colab-df-convert');
+        document.querySelector('#df-b020b6fd-9459-4f67-933d-87d6eabb5eb8 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-7778f82f-212b-44d0-a7d4-9119fb63a78a');
+        const element = document.querySelector('#df-b020b6fd-9459-4f67-933d-87d6eabb5eb8');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1381,51 +1465,16 @@ document.write(`
   </div></div>
 </div>
 </section>
-<section class="tex2jax_ignore mathjax_ignore" id="graph">
-<h1>Graph<a class="headerlink" href="#graph" title="Permalink to this heading">#</a></h1>
+<section id="graph">
+<h2>Graph<a class="headerlink" href="#graph" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df_co_occurrence</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
     <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df_co_occurrence</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
         <span class="n">weight</span> <span class="o">=</span> <span class="n">df_co_occurrence</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span>
-        <span class="k">if</span> <span class="n">weight</span> <span class="o">&gt;</span> <span class="mi">10</span> <span class="ow">and</span> <span class="n">idx</span> <span class="o">!=</span> <span class="n">col</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">weight</span> <span class="o">&gt;</span> <span class="mi">450</span> <span class="ow">and</span> <span class="n">idx</span> <span class="o">!=</span> <span class="n">col</span><span class="p">:</span>
             <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="n">weight</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-7-75ede253c227&gt;</span> in <span class="ni">&lt;cell line: 2&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df_co_occurrence</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df_co_occurrence</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
-<span class="ne">----&gt; </span><span class="mi">4</span>         <span class="n">weight</span> <span class="o">=</span> <span class="n">df_co_occurrence</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="n">col</span><span class="p">]</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>         <span class="k">if</span> <span class="n">weight</span> <span class="o">&gt;</span> <span class="mi">10</span> <span class="ow">and</span> <span class="n">idx</span> <span class="o">!=</span> <span class="n">col</span><span class="p">:</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span>             <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="n">col</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="n">weight</span><span class="p">)</span>
-
-<span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/core/indexing.py</span> in <span class="ni">__getitem__</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1063</span>             <span class="n">key</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">if</span> <span class="n">is_iterator</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">else</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">key</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1064</span>             <span class="n">key</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">com</span><span class="o">.</span><span class="n">apply_if_callable</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">key</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1065</span>             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_is_scalar_access</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1066</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">_get_value</span><span class="p">(</span><span class="o">*</span><span class="n">key</span><span class="p">,</span> <span class="n">takeable</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_takeable</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1067</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_getitem_tuple</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-
-<span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/core/indexing.py</span> in <span class="ni">_is_scalar_access</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1145</span>                 <span class="k">return</span> <span class="kc">False</span>
-<span class="g g-Whitespace">   </span><span class="mi">1146</span> 
-<span class="ne">-&gt; </span><span class="mi">1147</span>             <span class="n">ax</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-<span class="g g-Whitespace">   </span><span class="mi">1148</span>             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">MultiIndex</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1149</span>                 <span class="k">return</span> <span class="kc">False</span>
-
-<span class="nn">/usr/local/lib/python3.10/dist-packages/pandas/core/frame.py</span> in <span class="ni">axes</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">855</span>     <span class="c1"># ----------------------------------------------------------------------</span>
-<span class="g g-Whitespace">    </span><span class="mi">856</span> 
-<span class="ne">--&gt; </span><span class="mi">857</span>     <span class="nd">@property</span>
-<span class="g g-Whitespace">    </span><span class="mi">858</span>     <span class="k">def</span> <span class="nf">axes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Index</span><span class="p">]:</span>
-<span class="g g-Whitespace">    </span><span class="mi">859</span>         <span class="s2">&quot;&quot;&quot;</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>
@@ -1439,9 +1488,9 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;indonesia&#39;, 0.027051385270390638),
- (&#39;motogp&#39;, 0.017423226350825327),
- (&#39;baca&#39;, 0.011401538247205124)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;motogp&#39;, 0.16523682786251118),
+ (&#39;martin&#39;, 0.12586318739833485),
+ (&#39;balapan&#39;, 0.115190145068991)]
 </pre></div>
 </div>
 </div>
@@ -1453,9 +1502,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/a024d30c1ebfe3a364d2304c7fd60a423783a48a2cd5cb93a55aba8b1abe5d12.png" src="../_images/a024d30c1ebfe3a364d2304c7fd60a423783a48a2cd5cb93a55aba8b1abe5d12.png" />
+<img alt="../_images/d4ea798458acd2789e6edf251c6e9dc5510cf12ff5f6acecc0e5cf7532f5c0b4.png" src="../_images/d4ea798458acd2789e6edf251c6e9dc5510cf12ff5f6acecc0e5cf7532f5c0b4.png" />
 </div>
 </div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1512,12 +1562,12 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Pre Processing</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#stopword">Stopword</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#term-frequency">Term Frequency</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#graph">Graph</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-processing">Pre Processing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ambil-satu-data">Ambil satu data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stopword">Stopword</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#term-frequency">Term Frequency</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graph">Graph</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>
