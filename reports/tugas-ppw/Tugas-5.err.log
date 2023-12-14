@@ -30,11 +30,7 @@ nbclient.exceptions.CellTimeoutError: A cell timed out while it was being execut
 The message was: Cell execution timed out.
 Here is a preview of the cell contents:
 -------------------
-G = nx.Graph()
-for idx, row in df_co_occurrence.iterrows():
-    for col in df_co_occurrence.columns:
-        weight = df_co_occurrence.loc[idx, col]
-        if weight > 10 and idx != col:
-            G.add_edge(idx, col, weight=weight)
+df_tf_idf.to_excel('df_tf_idf.xlsx', index=False)
+
 -------------------
 

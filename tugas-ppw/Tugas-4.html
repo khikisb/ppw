@@ -65,7 +65,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'tugas-ppw/Tugas-4';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Ekstraksi Kata Kunci pada dokumen" href="Tugas-5.html" />
+    <link rel="next" title="UAS Pencarian &amp; Penambangan Web" href="Tugas-5.html" />
     <link rel="prev" title="UTS - implementasi Latent Directlet allocation (LDA)" href="Tugas-3.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -176,7 +176,21 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="Tugas-5.html">Ekstraksi Kata Kunci pada dokumen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tugas-5.html">UAS Pencarian &amp; Penambangan Web</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Tugas_uas.html">UAS Pencarian &amp; Penambangan Web</a></li>
+
+
+
+
+
+
+
+
+
+
 </ul>
 
     </div>
@@ -495,7 +509,7 @@ document.write(`
 
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span><span class="p">,</span> <span class="n">timedelta</span>
 <span class="n">start_date</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">2023</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">end_date</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">2023</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">end_date</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">2023</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
 <span class="n">news_data</span> <span class="o">=</span> <span class="n">scrape_news_data</span><span class="p">(</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">)</span>
 </pre></div>
@@ -504,80 +518,122 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="nn">&lt;ipython-input-1-a5f7cff06316&gt;</span> in <span class="ni">&lt;cell line: 46&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">     </span><span class="mi">44</span> <span class="n">end_date</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">2023</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nn">&lt;ipython-input-1-3d36bccf24d7&gt;</span> in <span class="ni">&lt;cell line: 46&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">44</span> <span class="n">end_date</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">2023</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">45</span> 
 <span class="ne">---&gt; </span><span class="mi">46</span> <span class="n">news_data</span> <span class="o">=</span> <span class="n">scrape_news_data</span><span class="p">(</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">)</span>
 
-<span class="nn">&lt;ipython-input-1-a5f7cff06316&gt;</span> in <span class="ni">scrape_news_data</span><span class="nt">(start_date, end_date)</span>
+<span class="nn">&lt;ipython-input-1-3d36bccf24d7&gt;</span> in <span class="ni">scrape_news_data</span><span class="nt">(start_date, end_date)</span>
 <span class="g g-Whitespace">     </span><span class="mi">30</span>                 <span class="n">title</span> <span class="o">=</span> <span class="n">element</span><span class="o">.</span><span class="n">a</span><span class="o">.</span><span class="n">text</span>
 <span class="g g-Whitespace">     </span><span class="mi">31</span>                 <span class="n">article_url</span> <span class="o">=</span> <span class="n">element</span><span class="o">.</span><span class="n">a</span><span class="p">[</span><span class="s1">&#39;href&#39;</span><span class="p">]</span>
 <span class="ne">---&gt; </span><span class="mi">32</span>                 <span class="n">content</span> <span class="o">=</span> <span class="n">get_article_content</span><span class="p">(</span><span class="n">article_url</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">33</span> 
 <span class="g g-Whitespace">     </span><span class="mi">34</span>                 <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s1">&#39;Date&#39;</span><span class="p">:</span> <span class="n">current_date</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%d</span><span class="s1">-%m-%Y&#39;</span><span class="p">),</span> <span class="s1">&#39;Title&#39;</span><span class="p">:</span> <span class="n">title</span><span class="p">,</span> <span class="s1">&#39;Content&#39;</span><span class="p">:</span> <span class="n">content</span><span class="p">})</span>
 
-<span class="nn">&lt;ipython-input-1-a5f7cff06316&gt;</span> in <span class="ni">get_article_content</span><span class="nt">(article_url)</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span>     <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">article_url</span><span class="p">)</span>
+<span class="nn">&lt;ipython-input-1-3d36bccf24d7&gt;</span> in <span class="ni">get_article_content</span><span class="nt">(article_url)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> 
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="k">def</span> <span class="nf">get_article_content</span><span class="p">(</span><span class="n">article_url</span><span class="p">):</span>
+<span class="ne">----&gt; </span><span class="mi">8</span>     <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">article_url</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">9</span>     <span class="k">if</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">10</span>         <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span>         <span class="n">article_content</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;read&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span>         <span class="n">content</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">p</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">article_content</span><span class="p">])</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span>         <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
 
-<span class="nn">/usr/local/lib/python3.10/dist-packages/bs4/__init__.py</span> in <span class="ni">__init__</span><span class="nt">(self, markup, features, builder, parse_only, from_encoding, exclude_encodings, element_classes, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">331</span>             <span class="bp">self</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">initialize_soup</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">332</span>             <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">333</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">_feed</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">334</span>                 <span class="n">success</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="g g-Whitespace">    </span><span class="mi">335</span>                 <span class="k">break</span>
+<span class="nn">/usr/local/lib/python3.10/dist-packages/requests/api.py</span> in <span class="ni">get</span><span class="nt">(url, params, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">71</span>     <span class="s2">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">72</span><span class="s2"> </span>
+<span class="ne">---&gt; </span><span class="mi">73</span><span class="s2">     return request(&quot;get&quot;, url, params=params, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span><span class="s2"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">75</span><span class="s2"> </span>
 
-<span class="nn">/usr/local/lib/python3.10/dist-packages/bs4/__init__.py</span> in <span class="ni">_feed</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">450</span>         <span class="bp">self</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">451</span> 
-<span class="ne">--&gt; </span><span class="mi">452</span>         <span class="bp">self</span><span class="o">.</span><span class="n">builder</span><span class="o">.</span><span class="n">feed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">markup</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">453</span>         <span class="c1"># Close out any unfinished strings and close all the open tags.</span>
-<span class="g g-Whitespace">    </span><span class="mi">454</span>         <span class="bp">self</span><span class="o">.</span><span class="n">endData</span><span class="p">()</span>
+<span class="nn">/usr/local/lib/python3.10/dist-packages/requests/api.py</span> in <span class="ni">request</span><span class="nt">(method, url, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">57</span><span class="s2">     # cases, and look like a memory leak in others.</span>
+<span class="g g-Whitespace">     </span><span class="mi">58</span><span class="s2">     with sessions.Session() as session:</span>
+<span class="ne">---&gt; </span><span class="mi">59</span><span class="s2">         return session.request(method=method, url=url, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">60</span><span class="s2"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">61</span><span class="s2"> </span>
 
-<span class="nn">/usr/local/lib/python3.10/dist-packages/bs4/builder/_htmlparser.py</span> in <span class="ni">feed</span><span class="nt">(self, markup)</span>
-<span class="g g-Whitespace">    </span><span class="mi">360</span>         <span class="n">parser</span> <span class="o">=</span> <span class="n">BeautifulSoupHTMLParser</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">361</span>         <span class="n">parser</span><span class="o">.</span><span class="n">soup</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">soup</span>
-<span class="ne">--&gt; </span><span class="mi">362</span>         <span class="n">parser</span><span class="o">.</span><span class="n">feed</span><span class="p">(</span><span class="n">markup</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">363</span>         <span class="n">parser</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">364</span>         <span class="n">parser</span><span class="o">.</span><span class="n">already_closed_empty_element</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="nn">/usr/local/lib/python3.10/dist-packages/requests/sessions.py</span> in <span class="ni">request</span><span class="nt">(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)</span>
+<span class="g g-Whitespace">    </span><span class="mi">587</span><span class="s2">         }</span>
+<span class="g g-Whitespace">    </span><span class="mi">588</span><span class="s2">         send_kwargs.update(settings)</span>
+<span class="ne">--&gt; </span><span class="mi">589</span><span class="s2">         resp = self.send(prep, **send_kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">590</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">591</span><span class="s2">         return resp</span>
 
-<span class="nn">/usr/lib/python3.10/html/parser.py</span> in <span class="ni">feed</span><span class="nt">(self, data)</span>
-<span class="g g-Whitespace">    </span><span class="mi">108</span><span class="w">         </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">109</span><span class="sd">         self.rawdata = self.rawdata + data</span>
-<span class="ne">--&gt; </span><span class="mi">110</span><span class="sd">         self.goahead(0)</span>
-<span class="g g-Whitespace">    </span><span class="mi">111</span><span class="sd"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">112</span><span class="sd">     def close(self):</span>
+<span class="nn">/usr/local/lib/python3.10/dist-packages/requests/sessions.py</span> in <span class="ni">send</span><span class="nt">(self, request, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">701</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">702</span><span class="s2">         # Send the request</span>
+<span class="ne">--&gt; </span><span class="mi">703</span><span class="s2">         r = adapter.send(request, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">704</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">705</span><span class="s2">         # Total elapsed time of the request (approximately)</span>
 
-<span class="nn">/usr/lib/python3.10/html/parser.py</span> in <span class="ni">goahead</span><span class="nt">(self, end)</span>
-<span class="g g-Whitespace">    </span><span class="mi">168</span><span class="sd">             if startswith(&#39;&lt;&#39;, i):</span>
-<span class="g g-Whitespace">    </span><span class="mi">169</span><span class="sd">                 if starttagopen.match(rawdata, i): # &lt; + letter</span>
-<span class="ne">--&gt; </span><span class="mi">170</span><span class="sd">                     k = self.parse_starttag(i)</span>
-<span class="g g-Whitespace">    </span><span class="mi">171</span><span class="sd">                 elif startswith(&quot;&lt;/&quot;, i):</span>
-<span class="g g-Whitespace">    </span><span class="mi">172</span><span class="sd">                     k = self.parse_endtag(i)</span>
+<span class="nn">/usr/local/lib/python3.10/dist-packages/requests/adapters.py</span> in <span class="ni">send</span><span class="nt">(self, request, stream, timeout, verify, cert, proxies)</span>
+<span class="g g-Whitespace">    </span><span class="mi">484</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">485</span><span class="s2">         try:</span>
+<span class="ne">--&gt; </span><span class="mi">486</span><span class="s2">             resp = conn.urlopen(</span>
+<span class="g g-Whitespace">    </span><span class="mi">487</span><span class="s2">                 method=request.method,</span>
+<span class="g g-Whitespace">    </span><span class="mi">488</span><span class="s2">                 url=url,</span>
 
-<span class="nn">/usr/lib/python3.10/html/parser.py</span> in <span class="ni">parse_starttag</span><span class="nt">(self, i)</span>
-<span class="g g-Whitespace">    </span><span class="mi">342</span><span class="sd">             self.handle_startendtag(tag, attrs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">343</span><span class="sd">         else:</span>
-<span class="ne">--&gt; </span><span class="mi">344</span><span class="sd">             self.handle_starttag(tag, attrs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">345</span><span class="sd">             if tag in self.CDATA_CONTENT_ELEMENTS:</span>
-<span class="g g-Whitespace">    </span><span class="mi">346</span><span class="sd">                 self.set_cdata_mode(tag)</span>
+<span class="nn">/usr/local/lib/python3.10/dist-packages/urllib3/connectionpool.py</span> in <span class="ni">urlopen</span><span class="nt">(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, preload_content, decode_content, **response_kw)</span>
+<span class="g g-Whitespace">    </span><span class="mi">789</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">790</span><span class="s2">             # Make the request on the HTTPConnection object</span>
+<span class="ne">--&gt; </span><span class="mi">791</span><span class="s2">             response = self._make_request(</span>
+<span class="g g-Whitespace">    </span><span class="mi">792</span><span class="s2">                 conn,</span>
+<span class="g g-Whitespace">    </span><span class="mi">793</span><span class="s2">                 method,</span>
 
-<span class="nn">/usr/local/lib/python3.10/dist-packages/bs4/builder/_htmlparser.py</span> in <span class="ni">handle_starttag</span><span class="nt">(self, name, attrs, handle_empty_element)</span>
-<span class="g g-Whitespace">    </span><span class="mi">118</span><span class="sd">         #print(&quot;START&quot;, name)</span>
-<span class="g g-Whitespace">    </span><span class="mi">119</span><span class="sd">         sourceline, sourcepos = self.getpos()</span>
-<span class="ne">--&gt; </span><span class="mi">120</span><span class="sd">         tag = self.soup.handle_starttag(</span>
-<span class="g g-Whitespace">    </span><span class="mi">121</span><span class="sd">             name, None, None, attr_dict, sourceline=sourceline,</span>
-<span class="g g-Whitespace">    </span><span class="mi">122</span><span class="sd">             sourcepos=sourcepos</span>
+<span class="nn">/usr/local/lib/python3.10/dist-packages/urllib3/connectionpool.py</span> in <span class="ni">_make_request</span><span class="nt">(self, conn, method, url, body, headers, retries, timeout, chunked, response_conn, preload_content, decode_content, enforce_content_length)</span>
+<span class="g g-Whitespace">    </span><span class="mi">535</span><span class="s2">         # Receive the response from the server</span>
+<span class="g g-Whitespace">    </span><span class="mi">536</span><span class="s2">         try:</span>
+<span class="ne">--&gt; </span><span class="mi">537</span><span class="s2">             response = conn.getresponse()</span>
+<span class="g g-Whitespace">    </span><span class="mi">538</span><span class="s2">         except (BaseSSLError, OSError) as e:</span>
+<span class="g g-Whitespace">    </span><span class="mi">539</span><span class="s2">             self._raise_timeout(err=e, url=url, timeout_value=read_timeout)</span>
 
-<span class="nn">/usr/local/lib/python3.10/dist-packages/bs4/__init__.py</span> in <span class="ni">handle_starttag</span><span class="nt">(self, name, namespace, nsprefix, attrs, sourceline, sourcepos, namespaces)</span>
-<span class="g g-Whitespace">    </span><span class="mi">693</span><span class="sd">         return most_recently_popped</span>
-<span class="g g-Whitespace">    </span><span class="mi">694</span><span class="sd"> </span>
-<span class="ne">--&gt; </span><span class="mi">695</span><span class="sd">     def handle_starttag(self, name, namespace, nsprefix, attrs, sourceline=None,</span>
-<span class="g g-Whitespace">    </span><span class="mi">696</span><span class="sd">                         sourcepos=None, namespaces=None):</span>
-<span class="g g-Whitespace">    </span><span class="mi">697</span><span class="sd">         &quot;&quot;&quot;</span><span class="n">Called</span> <span class="n">by</span> <span class="n">the</span> <span class="n">tree</span> <span class="n">builder</span> <span class="n">when</span> <span class="n">a</span> <span class="n">new</span> <span class="n">tag</span> <span class="ow">is</span> <span class="n">encountered</span><span class="o">.</span>
+<span class="nn">/usr/local/lib/python3.10/dist-packages/urllib3/connection.py</span> in <span class="ni">getresponse</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">459</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">460</span><span class="s2">         # Get the response from http.client.HTTPConnection</span>
+<span class="ne">--&gt; </span><span class="mi">461</span><span class="s2">         httplib_response = super().getresponse()</span>
+<span class="g g-Whitespace">    </span><span class="mi">462</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">463</span><span class="s2">         try:</span>
+
+<span class="nn">/usr/lib/python3.10/http/client.py</span> in <span class="ni">getresponse</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1373</span><span class="s2">         try:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1374</span><span class="s2">             try:</span>
+<span class="ne">-&gt; </span><span class="mi">1375</span><span class="s2">                 response.begin()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1376</span><span class="s2">             except ConnectionError:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1377</span><span class="s2">                 self.close()</span>
+
+<span class="nn">/usr/lib/python3.10/http/client.py</span> in <span class="ni">begin</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">316</span><span class="s2">         # read until we get a non-100 response</span>
+<span class="g g-Whitespace">    </span><span class="mi">317</span><span class="s2">         while True:</span>
+<span class="ne">--&gt; </span><span class="mi">318</span><span class="s2">             version, status, reason = self._read_status()</span>
+<span class="g g-Whitespace">    </span><span class="mi">319</span><span class="s2">             if status != CONTINUE:</span>
+<span class="g g-Whitespace">    </span><span class="mi">320</span><span class="s2">                 break</span>
+
+<span class="nn">/usr/lib/python3.10/http/client.py</span> in <span class="ni">_read_status</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">277</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">278</span><span class="s2">     def _read_status(self):</span>
+<span class="ne">--&gt; </span><span class="mi">279</span><span class="s2">         line = str(self.fp.readline(_MAXLINE + 1), &quot;iso-8859-1&quot;)</span>
+<span class="g g-Whitespace">    </span><span class="mi">280</span><span class="s2">         if len(line) &gt; _MAXLINE:</span>
+<span class="g g-Whitespace">    </span><span class="mi">281</span><span class="s2">             raise LineTooLong(&quot;status line&quot;)</span>
+
+<span class="nn">/usr/lib/python3.10/socket.py</span> in <span class="ni">readinto</span><span class="nt">(self, b)</span>
+<span class="g g-Whitespace">    </span><span class="mi">703</span><span class="s2">         while True:</span>
+<span class="g g-Whitespace">    </span><span class="mi">704</span><span class="s2">             try:</span>
+<span class="ne">--&gt; </span><span class="mi">705</span><span class="s2">                 return self._sock.recv_into(b)</span>
+<span class="g g-Whitespace">    </span><span class="mi">706</span><span class="s2">             except timeout:</span>
+<span class="g g-Whitespace">    </span><span class="mi">707</span><span class="s2">                 self._timeout_occurred = True</span>
+
+<span class="nn">/usr/lib/python3.10/ssl.py</span> in <span class="ni">recv_into</span><span class="nt">(self, buffer, nbytes, flags)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1301</span><span class="s2">                   &quot;non-zero flags not allowed in calls to recv_into() on </span><span class="si">%s</span><span class="s2">&quot; %</span>
+<span class="g g-Whitespace">   </span><span class="mi">1302</span><span class="s2">                   self.__class__)</span>
+<span class="ne">-&gt; </span><span class="mi">1303</span><span class="s2">             return self.read(nbytes, buffer)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1304</span><span class="s2">         else:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1305</span><span class="s2">             return super().recv_into(buffer, nbytes, flags)</span>
+
+<span class="nn">/usr/lib/python3.10/ssl.py</span> in <span class="ni">read</span><span class="nt">(self, len, buffer)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1157</span><span class="s2">         try:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1158</span><span class="s2">             if buffer is not None:</span>
+<span class="ne">-&gt; </span><span class="mi">1159</span><span class="s2">                 return self._sslobj.read(len, buffer)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1160</span><span class="s2">             else:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1161</span><span class="s2">                 return self._sslobj.read(len)</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
@@ -614,7 +670,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-90f61209-7ff2-4fd3-a9c6-dbf6fa29de9e" class="colab-df-container">
+  <div id="df-e898f9c5-d361-4b88-92b7-0bd6d9dcc649" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -683,48 +739,48 @@ document.write(`
       <td>...</td>
     </tr>
     <tr>
-      <th>347</th>
-      <td>01-11-2023</td>
-      <td>Hasil Hylo Open 2023...</td>
-      <td>SAARBRUCKEN – Pasangan ganda campuran Indonesi...</td>
+      <th>677</th>
+      <td>01-12-2023</td>
+      <td>Hasil Syed Modi Inte...</td>
+      <td>LUCKNOW - Ganda campuran Indonesia, Dejan Ferd...</td>
       <td>Sport</td>
     </tr>
     <tr>
-      <th>348</th>
-      <td>01-11-2023</td>
-      <td>Fajar Alfian/Rian Ar...</td>
-      <td>JAKARTA - Ganda putra Indonesia, Fajar Alfian/...</td>
+      <th>678</th>
+      <td>01-12-2023</td>
+      <td>POBSI Umumkan Gelar ...</td>
+      <td>JAKARTA –  Persatuan Olahraga Biliar Seluruh I...</td>
       <td>Sport</td>
     </tr>
     <tr>
-      <th>349</th>
-      <td>01-11-2023</td>
-      <td>5 Kelebihan Sirkuit ...</td>
-      <td>5 kelebihan Sirkuit Mandalika yang tak dimilik...</td>
+      <th>679</th>
+      <td>01-12-2023</td>
+      <td>Resmi Menikah, Ini K...</td>
+      <td>JAKARTA - Jonatan Christie dan Shania Junianat...</td>
       <td>Sport</td>
     </tr>
     <tr>
-      <th>350</th>
-      <td>01-11-2023</td>
-      <td>Kenapa Jorge Lorenzo...</td>
-      <td>KENAPA Jorge Lorenzo disebut paduka? Bahkan ju...</td>
+      <th>680</th>
+      <td>01-12-2023</td>
+      <td>Jadi Tuan Rumah, Ini...</td>
+      <td>JAKARTA - Gelaran BWF World Tour Finals sudah ...</td>
       <td>Sport</td>
     </tr>
     <tr>
-      <th>351</th>
-      <td>01-11-2023</td>
-      <td>Hasil Hylo Open 2023...</td>
-      <td>HASIL Hylo Open 2023 akan diulas dalam artikel...</td>
+      <th>681</th>
+      <td>01-12-2023</td>
+      <td>Resmi Lepas Masa Laj...</td>
+      <td>JAKARTA - Pebulutangkis tunggal putra Indonesi...</td>
       <td>Sport</td>
     </tr>
   </tbody>
 </table>
-<p>352 rows × 4 columns</p>
+<p>682 rows × 4 columns</p>
 </div>
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-90f61209-7ff2-4fd3-a9c6-dbf6fa29de9e')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-e898f9c5-d361-4b88-92b7-0bd6d9dcc649')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -776,12 +832,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-90f61209-7ff2-4fd3-a9c6-dbf6fa29de9e button.colab-df-convert');
+        document.querySelector('#df-e898f9c5-d361-4b88-92b7-0bd6d9dcc649 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-90f61209-7ff2-4fd3-a9c6-dbf6fa29de9e');
+        const element = document.querySelector('#df-e898f9c5-d361-4b88-92b7-0bd6d9dcc649');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -801,8 +857,8 @@ document.write(`
   </div>
 
 
-<div id="df-5b3c198a-0db4-427a-9d78-506edc345bb7">
-  <button class="colab-df-quickchart" onclick="quickchart('df-5b3c198a-0db4-427a-9d78-506edc345bb7')"
+<div id="df-6aad7ad8-93a6-4794-ba0c-559b5b6dfeee">
+  <button class="colab-df-quickchart" onclick="quickchart('df-6aad7ad8-93a6-4794-ba0c-559b5b6dfeee')"
             title="Suggest charts"
             style="display:none;">
 
@@ -921,7 +977,7 @@ document.write(`
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-5b3c198a-0db4-427a-9d78-506edc345bb7 button');
+        document.querySelector('#df-6aad7ad8-93a6-4794-ba0c-559b5b6dfeee button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
@@ -981,7 +1037,7 @@ document.write(`
 
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span><span class="p">,</span> <span class="n">timedelta</span>
 <span class="n">start_date</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">2023</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">end_date</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">2023</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">end_date</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">2023</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
 <span class="n">news_data_finance</span> <span class="o">=</span> <span class="n">scrape_news_data</span><span class="p">(</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">)</span>
 </pre></div>
@@ -1023,7 +1079,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-80709c5d-9535-427a-90cd-921e4c55d1aa" class="colab-df-container">
+  <div id="df-7b6a77bc-f6b9-4ea3-9464-f7df5092fd22" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1052,36 +1108,36 @@ document.write(`
     <tr>
       <th>0</th>
       <td>01-10-2023</td>
-      <td>Bicara soal Sektor Maritim, Ganjar Pranowo Seb...</td>
-      <td>JAKARTA – Pemanfaatan ekonomi di sektor mariti...</td>
+      <td>Bapanas Pastikan Stok Pangan Nasional Aman Jel...</td>
+      <td>JAKARTA – Bapanas memastikan stok pangan strat...</td>
       <td>Finance</td>
     </tr>
     <tr>
       <th>1</th>
       <td>01-10-2023</td>
-      <td>Apakah PNS Bisa Menikah dengan Orang Luar Negeri?</td>
-      <td>JAKARTA - Apakah PNS bisa menikah dengan orang...</td>
+      <td>Segini Biaya Rehabilitasi Narkoba di Indonesia</td>
+      <td>JAKARTA - Segini besaran biaya rehabilitasi na...</td>
       <td>Finance</td>
     </tr>
     <tr>
       <th>2</th>
       <td>01-10-2023</td>
-      <td>Sektor UMKM Jadi Pahlawan Ekonomi Indonesia</td>
-      <td>JAKARTA - Sektor Usaha Mikro Kecil dan Menenga...</td>
+      <td>Profil dan Kekayaan Ammar Zoni, Artis yang Kem...</td>
+      <td>JAKARTA - Profil dan kekayaan Ammar Zoni. Arti...</td>
       <td>Finance</td>
     </tr>
     <tr>
       <th>3</th>
       <td>01-10-2023</td>
-      <td>Cara Mengecek Apakah Nama Kita Terdaftar di Pi...</td>
-      <td>JAKARTA - Cara mengecek apakah nama kita terda...</td>
+      <td>Kasus Covid Meningkat, Emiten Sarung Tangan (M...</td>
+      <td>JAKARTA - Emiten cetakan sarung tangan PT Mark...</td>
       <td>Finance</td>
     </tr>
     <tr>
       <th>4</th>
       <td>01-10-2023</td>
-      <td>Ubah Pola Pertanian, Petani Bisa Raup Cuan Rp2...</td>
-      <td>JAKARTA - Sektor pertanian menjadi salah satu ...</td>
+      <td>Kemenkop UKM Tegaskan Beroperasinya TikTok Sho...</td>
+      <td>JAKARTA - Kementerian Koperasi dan UKM (KemenK...</td>
       <td>Finance</td>
     </tr>
     <tr>
@@ -1092,48 +1148,48 @@ document.write(`
       <td>...</td>
     </tr>
     <tr>
-      <th>315</th>
-      <td>01-11-2023</td>
-      <td>Segini Besaran Uang Makan dan Uang Lauk Pauk P...</td>
-      <td>JAKARTA - Segini besaran uang makan dan uang l...</td>
+      <th>615</th>
+      <td>01-12-2023</td>
+      <td>Ternyata Begini Pengelolaan Pasokan Batu Bara ...</td>
+      <td>JAKARTA - Pengelolaan batu bara untuk Pembangk...</td>
       <td>Finance</td>
     </tr>
     <tr>
-      <th>316</th>
-      <td>01-11-2023</td>
-      <td>Aturan RPP Kesehatan Bakal Picu Peredaran Roko...</td>
-      <td>JAKARTA – Aturan Rancangan Peraturan Pemerinta...</td>
+      <th>616</th>
+      <td>01-12-2023</td>
+      <td>Transaksi Perdagangan Berjangka Komoditi Dipre...</td>
+      <td>JAKARTA - Indonesia Commodity &amp; Derivatives Ex...</td>
       <td>Finance</td>
     </tr>
     <tr>
-      <th>317</th>
-      <td>01-11-2023</td>
-      <td>Mentan: Cukup Pakai KTP Petani Dapat Pupuk Sub...</td>
-      <td>JAKARTA - Menteri Pertanian Amran Sulaiman men...</td>
+      <th>617</th>
+      <td>01-12-2023</td>
+      <td>RUPS, Emiten Helikopter (HELI) Rombak Manajemen</td>
+      <td>JAKARTA - Emiten persewaan helikopter PT Jaya ...</td>
       <td>Finance</td>
     </tr>
     <tr>
-      <th>318</th>
-      <td>01-11-2023</td>
-      <td>Ganjar Ingin Masyarakat Rasakan Dampak Langsun...</td>
-      <td>JAKARTA - Calon Presiden Partai Perindo Ganjar...</td>
+      <th>618</th>
+      <td>01-12-2023</td>
+      <td>PTPP Tunjuk Dhony Rahajoe Jadi Komisaris Utama</td>
+      <td>JAKARTA - PT PP (Persero) Tbk (PTPP) mengangka...</td>
       <td>Finance</td>
     </tr>
     <tr>
-      <th>319</th>
-      <td>01-11-2023</td>
-      <td>Mengintip Harta Karun Migas di Jabanusa, Bisa ...</td>
-      <td>JAKARTA - SKK Migas menyatakan potensi harta k...</td>
+      <th>619</th>
+      <td>01-12-2023</td>
+      <td>Sri Mulyani Bicara Indonesia Jadi High Income ...</td>
+      <td>JAKARTA - Menteri Keuangan Sri Mulyani Indrawa...</td>
       <td>Finance</td>
     </tr>
   </tbody>
 </table>
-<p>320 rows × 4 columns</p>
+<p>620 rows × 4 columns</p>
 </div>
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-80709c5d-9535-427a-90cd-921e4c55d1aa')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-7b6a77bc-f6b9-4ea3-9464-f7df5092fd22')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -1185,12 +1241,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-80709c5d-9535-427a-90cd-921e4c55d1aa button.colab-df-convert');
+        document.querySelector('#df-7b6a77bc-f6b9-4ea3-9464-f7df5092fd22 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-80709c5d-9535-427a-90cd-921e4c55d1aa');
+        const element = document.querySelector('#df-7b6a77bc-f6b9-4ea3-9464-f7df5092fd22');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1210,8 +1266,8 @@ document.write(`
   </div>
 
 
-<div id="df-337748a5-b823-4ef3-b422-b688038f601e">
-  <button class="colab-df-quickchart" onclick="quickchart('df-337748a5-b823-4ef3-b422-b688038f601e')"
+<div id="df-7b17a260-5d85-46a2-811f-576407e699a1">
+  <button class="colab-df-quickchart" onclick="quickchart('df-7b17a260-5d85-46a2-811f-576407e699a1')"
             title="Suggest charts"
             style="display:none;">
 
@@ -1330,7 +1386,7 @@ document.write(`
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-337748a5-b823-4ef3-b422-b688038f601e button');
+        document.querySelector('#df-7b17a260-5d85-46a2-811f-576407e699a1 button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
@@ -1389,7 +1445,7 @@ document.write(`
 
 <span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span><span class="p">,</span> <span class="n">timedelta</span>
 <span class="n">start_date</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">2023</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">end_date</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">2023</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">end_date</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">2023</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
 <span class="n">news_data_politik</span> <span class="o">=</span> <span class="n">scrape_news_data</span><span class="p">(</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">)</span>
 </pre></div>
@@ -1428,7 +1484,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-a507f5f9-8487-476c-a575-fc7c7808eaad" class="colab-df-container">
+  <div id="df-59d75aa7-6f6c-4302-80ea-061263148c20" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1457,36 +1513,36 @@ document.write(`
     <tr>
       <th>0</th>
       <td>01-10-2023</td>
-      <td>Bicara soal Sektor Maritim, Ganjar Pranowo Seb...</td>
-      <td>JAKARTA – Pemanfaatan ekonomi di sektor mariti...</td>
+      <td>Bapanas Pastikan Stok Pangan Nasional Aman Jel...</td>
+      <td>JAKARTA – Bapanas memastikan stok pangan strat...</td>
       <td>Politik</td>
     </tr>
     <tr>
       <th>1</th>
       <td>01-10-2023</td>
-      <td>Apakah PNS Bisa Menikah dengan Orang Luar Negeri?</td>
-      <td>JAKARTA - Apakah PNS bisa menikah dengan orang...</td>
+      <td>Segini Biaya Rehabilitasi Narkoba di Indonesia</td>
+      <td>JAKARTA - Segini besaran biaya rehabilitasi na...</td>
       <td>Politik</td>
     </tr>
     <tr>
       <th>2</th>
       <td>01-10-2023</td>
-      <td>Sektor UMKM Jadi Pahlawan Ekonomi Indonesia</td>
-      <td>JAKARTA - Sektor Usaha Mikro Kecil dan Menenga...</td>
+      <td>Profil dan Kekayaan Ammar Zoni, Artis yang Kem...</td>
+      <td>JAKARTA - Profil dan kekayaan Ammar Zoni. Arti...</td>
       <td>Politik</td>
     </tr>
     <tr>
       <th>3</th>
       <td>01-10-2023</td>
-      <td>Cara Mengecek Apakah Nama Kita Terdaftar di Pi...</td>
-      <td>JAKARTA - Cara mengecek apakah nama kita terda...</td>
+      <td>Kasus Covid Meningkat, Emiten Sarung Tangan (M...</td>
+      <td>JAKARTA - Emiten cetakan sarung tangan PT Mark...</td>
       <td>Politik</td>
     </tr>
     <tr>
       <th>4</th>
       <td>01-10-2023</td>
-      <td>Ubah Pola Pertanian, Petani Bisa Raup Cuan Rp2...</td>
-      <td>JAKARTA - Sektor pertanian menjadi salah satu ...</td>
+      <td>Kemenkop UKM Tegaskan Beroperasinya TikTok Sho...</td>
+      <td>JAKARTA - Kementerian Koperasi dan UKM (KemenK...</td>
       <td>Politik</td>
     </tr>
     <tr>
@@ -1497,48 +1553,48 @@ document.write(`
       <td>...</td>
     </tr>
     <tr>
-      <th>315</th>
-      <td>01-11-2023</td>
-      <td>Segini Besaran Uang Makan dan Uang Lauk Pauk P...</td>
-      <td>JAKARTA - Segini besaran uang makan dan uang l...</td>
+      <th>615</th>
+      <td>01-12-2023</td>
+      <td>Ternyata Begini Pengelolaan Pasokan Batu Bara ...</td>
+      <td>JAKARTA - Pengelolaan batu bara untuk Pembangk...</td>
       <td>Politik</td>
     </tr>
     <tr>
-      <th>316</th>
-      <td>01-11-2023</td>
-      <td>Aturan RPP Kesehatan Bakal Picu Peredaran Roko...</td>
-      <td>JAKARTA – Aturan Rancangan Peraturan Pemerinta...</td>
+      <th>616</th>
+      <td>01-12-2023</td>
+      <td>Transaksi Perdagangan Berjangka Komoditi Dipre...</td>
+      <td>JAKARTA - Indonesia Commodity &amp; Derivatives Ex...</td>
       <td>Politik</td>
     </tr>
     <tr>
-      <th>317</th>
-      <td>01-11-2023</td>
-      <td>Mentan: Cukup Pakai KTP Petani Dapat Pupuk Sub...</td>
-      <td>JAKARTA - Menteri Pertanian Amran Sulaiman men...</td>
+      <th>617</th>
+      <td>01-12-2023</td>
+      <td>RUPS, Emiten Helikopter (HELI) Rombak Manajemen</td>
+      <td>JAKARTA - Emiten persewaan helikopter PT Jaya ...</td>
       <td>Politik</td>
     </tr>
     <tr>
-      <th>318</th>
-      <td>01-11-2023</td>
-      <td>Ganjar Ingin Masyarakat Rasakan Dampak Langsun...</td>
-      <td>JAKARTA - Calon Presiden Partai Perindo Ganjar...</td>
+      <th>618</th>
+      <td>01-12-2023</td>
+      <td>PTPP Tunjuk Dhony Rahajoe Jadi Komisaris Utama</td>
+      <td>JAKARTA - PT PP (Persero) Tbk (PTPP) mengangka...</td>
       <td>Politik</td>
     </tr>
     <tr>
-      <th>319</th>
-      <td>01-11-2023</td>
-      <td>Mengintip Harta Karun Migas di Jabanusa, Bisa ...</td>
-      <td>JAKARTA - SKK Migas menyatakan potensi harta k...</td>
+      <th>619</th>
+      <td>01-12-2023</td>
+      <td>Sri Mulyani Bicara Indonesia Jadi High Income ...</td>
+      <td>JAKARTA - Menteri Keuangan Sri Mulyani Indrawa...</td>
       <td>Politik</td>
     </tr>
   </tbody>
 </table>
-<p>320 rows × 4 columns</p>
+<p>620 rows × 4 columns</p>
 </div>
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-a507f5f9-8487-476c-a575-fc7c7808eaad')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-59d75aa7-6f6c-4302-80ea-061263148c20')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -1590,12 +1646,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-a507f5f9-8487-476c-a575-fc7c7808eaad button.colab-df-convert');
+        document.querySelector('#df-59d75aa7-6f6c-4302-80ea-061263148c20 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-a507f5f9-8487-476c-a575-fc7c7808eaad');
+        const element = document.querySelector('#df-59d75aa7-6f6c-4302-80ea-061263148c20');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1615,8 +1671,8 @@ document.write(`
   </div>
 
 
-<div id="df-9eef7da0-6fd9-4040-86dd-20c649f59fed">
-  <button class="colab-df-quickchart" onclick="quickchart('df-9eef7da0-6fd9-4040-86dd-20c649f59fed')"
+<div id="df-f91c6c56-1b8f-4168-aab8-3cf4be6dc2c7">
+  <button class="colab-df-quickchart" onclick="quickchart('df-f91c6c56-1b8f-4168-aab8-3cf4be6dc2c7')"
             title="Suggest charts"
             style="display:none;">
 
@@ -1735,7 +1791,7 @@ document.write(`
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-9eef7da0-6fd9-4040-86dd-20c649f59fed button');
+        document.querySelector('#df-f91c6c56-1b8f-4168-aab8-3cf4be6dc2c7 button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
@@ -1765,7 +1821,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-2bc28cfa-29f6-4ae7-9624-81c3236146f4" class="colab-df-container">
+  <div id="df-0be6897c-b800-4c4e-be8b-bb2345b6be3e" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1834,48 +1890,48 @@ document.write(`
       <td>...</td>
     </tr>
     <tr>
-      <th>987</th>
-      <td>01-11-2023</td>
-      <td>Segini Besaran Uang Makan dan Uang Lauk Pauk P...</td>
-      <td>JAKARTA - Segini besaran uang makan dan uang l...</td>
+      <th>1917</th>
+      <td>01-12-2023</td>
+      <td>Ternyata Begini Pengelolaan Pasokan Batu Bara ...</td>
+      <td>JAKARTA - Pengelolaan batu bara untuk Pembangk...</td>
       <td>Politik</td>
     </tr>
     <tr>
-      <th>988</th>
-      <td>01-11-2023</td>
-      <td>Aturan RPP Kesehatan Bakal Picu Peredaran Roko...</td>
-      <td>JAKARTA – Aturan Rancangan Peraturan Pemerinta...</td>
+      <th>1918</th>
+      <td>01-12-2023</td>
+      <td>Transaksi Perdagangan Berjangka Komoditi Dipre...</td>
+      <td>JAKARTA - Indonesia Commodity &amp; Derivatives Ex...</td>
       <td>Politik</td>
     </tr>
     <tr>
-      <th>989</th>
-      <td>01-11-2023</td>
-      <td>Mentan: Cukup Pakai KTP Petani Dapat Pupuk Sub...</td>
-      <td>JAKARTA - Menteri Pertanian Amran Sulaiman men...</td>
+      <th>1919</th>
+      <td>01-12-2023</td>
+      <td>RUPS, Emiten Helikopter (HELI) Rombak Manajemen</td>
+      <td>JAKARTA - Emiten persewaan helikopter PT Jaya ...</td>
       <td>Politik</td>
     </tr>
     <tr>
-      <th>990</th>
-      <td>01-11-2023</td>
-      <td>Ganjar Ingin Masyarakat Rasakan Dampak Langsun...</td>
-      <td>JAKARTA - Calon Presiden Partai Perindo Ganjar...</td>
+      <th>1920</th>
+      <td>01-12-2023</td>
+      <td>PTPP Tunjuk Dhony Rahajoe Jadi Komisaris Utama</td>
+      <td>JAKARTA - PT PP (Persero) Tbk (PTPP) mengangka...</td>
       <td>Politik</td>
     </tr>
     <tr>
-      <th>991</th>
-      <td>01-11-2023</td>
-      <td>Mengintip Harta Karun Migas di Jabanusa, Bisa ...</td>
-      <td>JAKARTA - SKK Migas menyatakan potensi harta k...</td>
+      <th>1921</th>
+      <td>01-12-2023</td>
+      <td>Sri Mulyani Bicara Indonesia Jadi High Income ...</td>
+      <td>JAKARTA - Menteri Keuangan Sri Mulyani Indrawa...</td>
       <td>Politik</td>
     </tr>
   </tbody>
 </table>
-<p>992 rows × 4 columns</p>
+<p>1922 rows × 4 columns</p>
 </div>
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-2bc28cfa-29f6-4ae7-9624-81c3236146f4')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-0be6897c-b800-4c4e-be8b-bb2345b6be3e')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -1927,12 +1983,12 @@ document.write(`
 
     <script>
       const buttonEl =
-        document.querySelector('#df-2bc28cfa-29f6-4ae7-9624-81c3236146f4 button.colab-df-convert');
+        document.querySelector('#df-0be6897c-b800-4c4e-be8b-bb2345b6be3e button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-2bc28cfa-29f6-4ae7-9624-81c3236146f4');
+        const element = document.querySelector('#df-0be6897c-b800-4c4e-be8b-bb2345b6be3e');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -1952,8 +2008,8 @@ document.write(`
   </div>
 
 
-<div id="df-dedc6324-5f7b-4400-8a9b-f171cfa97c16">
-  <button class="colab-df-quickchart" onclick="quickchart('df-dedc6324-5f7b-4400-8a9b-f171cfa97c16')"
+<div id="df-f6d0c3d4-317f-424e-a780-3022cce89e20">
+  <button class="colab-df-quickchart" onclick="quickchart('df-f6d0c3d4-317f-424e-a780-3022cce89e20')"
             title="Suggest charts"
             style="display:none;">
 
@@ -2072,7 +2128,7 @@ document.write(`
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-dedc6324-5f7b-4400-8a9b-f171cfa97c16 button');
+        document.querySelector('#df-f6d0c3d4-317f-424e-a780-3022cce89e20 button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
@@ -2089,9 +2145,9 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sport      352
-Finance    320
-Politik    320
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sport      682
+Finance    620
+Politik    620
 Name: Label, dtype: int64
 </pre></div>
 </div>
@@ -2107,13 +2163,20 @@ Name: Label, dtype: int64
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">combined_df</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="s1">&#39;data_label_news.xlsx&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">combined_df</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-4ea8ba53-35c8-4414-9674-59a848ce63c8" class="colab-df-container">
+  <div id="df-2e3e50cf-a23b-4a92-ae83-e3d310c25f4e" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -2182,48 +2245,48 @@ Name: Label, dtype: int64
       <td>...</td>
     </tr>
     <tr>
-      <th>987</th>
-      <td>01-11-2023</td>
-      <td>Segini Besaran Uang Makan dan Uang Lauk Pauk P...</td>
-      <td>JAKARTA - Segini besaran uang makan dan uang l...</td>
+      <th>1917</th>
+      <td>01-12-2023</td>
+      <td>Ternyata Begini Pengelolaan Pasokan Batu Bara ...</td>
+      <td>JAKARTA - Pengelolaan batu bara untuk Pembangk...</td>
       <td>Politik</td>
     </tr>
     <tr>
-      <th>988</th>
-      <td>01-11-2023</td>
-      <td>Aturan RPP Kesehatan Bakal Picu Peredaran Roko...</td>
-      <td>JAKARTA – Aturan Rancangan Peraturan Pemerinta...</td>
+      <th>1918</th>
+      <td>01-12-2023</td>
+      <td>Transaksi Perdagangan Berjangka Komoditi Dipre...</td>
+      <td>JAKARTA - Indonesia Commodity &amp; Derivatives Ex...</td>
       <td>Politik</td>
     </tr>
     <tr>
-      <th>989</th>
-      <td>01-11-2023</td>
-      <td>Mentan: Cukup Pakai KTP Petani Dapat Pupuk Sub...</td>
-      <td>JAKARTA - Menteri Pertanian Amran Sulaiman men...</td>
+      <th>1919</th>
+      <td>01-12-2023</td>
+      <td>RUPS, Emiten Helikopter (HELI) Rombak Manajemen</td>
+      <td>JAKARTA - Emiten persewaan helikopter PT Jaya ...</td>
       <td>Politik</td>
     </tr>
     <tr>
-      <th>990</th>
-      <td>01-11-2023</td>
-      <td>Ganjar Ingin Masyarakat Rasakan Dampak Langsun...</td>
-      <td>JAKARTA - Calon Presiden Partai Perindo Ganjar...</td>
+      <th>1920</th>
+      <td>01-12-2023</td>
+      <td>PTPP Tunjuk Dhony Rahajoe Jadi Komisaris Utama</td>
+      <td>JAKARTA - PT PP (Persero) Tbk (PTPP) mengangka...</td>
       <td>Politik</td>
     </tr>
     <tr>
-      <th>991</th>
-      <td>01-11-2023</td>
-      <td>Mengintip Harta Karun Migas di Jabanusa, Bisa ...</td>
-      <td>JAKARTA - SKK Migas menyatakan potensi harta k...</td>
+      <th>1921</th>
+      <td>01-12-2023</td>
+      <td>Sri Mulyani Bicara Indonesia Jadi High Income ...</td>
+      <td>JAKARTA - Menteri Keuangan Sri Mulyani Indrawa...</td>
       <td>Politik</td>
     </tr>
   </tbody>
 </table>
-<p>992 rows × 4 columns</p>
+<p>1922 rows × 4 columns</p>
 </div>
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-4ea8ba53-35c8-4414-9674-59a848ce63c8')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-2e3e50cf-a23b-4a92-ae83-e3d310c25f4e')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -2275,12 +2338,12 @@ Name: Label, dtype: int64
 
     <script>
       const buttonEl =
-        document.querySelector('#df-4ea8ba53-35c8-4414-9674-59a848ce63c8 button.colab-df-convert');
+        document.querySelector('#df-2e3e50cf-a23b-4a92-ae83-e3d310c25f4e button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-4ea8ba53-35c8-4414-9674-59a848ce63c8');
+        const element = document.querySelector('#df-2e3e50cf-a23b-4a92-ae83-e3d310c25f4e');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -2300,8 +2363,8 @@ Name: Label, dtype: int64
   </div>
 
 
-<div id="df-1512346d-dc28-4452-8ac4-2f0ff2985225">
-  <button class="colab-df-quickchart" onclick="quickchart('df-1512346d-dc28-4452-8ac4-2f0ff2985225')"
+<div id="df-333a4c5f-bd61-44b1-964e-f5cb1cb9a44e">
+  <button class="colab-df-quickchart" onclick="quickchart('df-333a4c5f-bd61-44b1-964e-f5cb1cb9a44e')"
             title="Suggest charts"
             style="display:none;">
 
@@ -2420,7 +2483,7 @@ Name: Label, dtype: int64
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-1512346d-dc28-4452-8ac4-2f0ff2985225 button');
+        document.querySelector('#df-333a4c5f-bd61-44b1-964e-f5cb1cb9a44e button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
@@ -2437,18 +2500,18 @@ Name: Label, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      ASAPI Francesco Bagnaia di MotoGP Jepang 2023,...
-1      EKO Yuli Irawan mengucapkan permintaan maafnya...
-2      MOTEGI - Marc Marquez girang setelah bisa naik...
-3      KLASEMEN sementara perolehan medali Asian Game...
-4      HASIL Asian Games 2023 akan dibahas di sini. T...
-                             ...                        
-987    JAKARTA - Segini besaran uang makan dan uang l...
-988    JAKARTA – Aturan Rancangan Peraturan Pemerinta...
-989    JAKARTA - Menteri Pertanian Amran Sulaiman men...
-990    JAKARTA - Calon Presiden Partai Perindo Ganjar...
-991    JAKARTA - SKK Migas menyatakan potensi harta k...
-Name: Content, Length: 992, dtype: object
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0       ASAPI Francesco Bagnaia di MotoGP Jepang 2023,...
+1       EKO Yuli Irawan mengucapkan permintaan maafnya...
+2       MOTEGI - Marc Marquez girang setelah bisa naik...
+3       KLASEMEN sementara perolehan medali Asian Game...
+4       HASIL Asian Games 2023 akan dibahas di sini. T...
+                              ...                        
+1917    JAKARTA - Pengelolaan batu bara untuk Pembangk...
+1918    JAKARTA - Indonesia Commodity &amp; Derivatives Ex...
+1919    JAKARTA - Emiten persewaan helikopter PT Jaya ...
+1920    JAKARTA - PT PP (Persero) Tbk (PTPP) mengangka...
+1921    JAKARTA - Menteri Keuangan Sri Mulyani Indrawa...
+Name: Content, Length: 1922, dtype: object
 </pre></div>
 </div>
 </div>
@@ -2472,7 +2535,7 @@ Name: Content, Length: 992, dtype: object
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-621c1343-762b-4836-85e9-ec19579efe04" class="colab-df-container">
+  <div id="df-99940cb2-14f9-44f3-af26-5f99866ed6e0" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -2582,7 +2645,7 @@ Name: Content, Length: 992, dtype: object
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-621c1343-762b-4836-85e9-ec19579efe04')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-99940cb2-14f9-44f3-af26-5f99866ed6e0')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -2634,12 +2697,12 @@ Name: Content, Length: 992, dtype: object
 
     <script>
       const buttonEl =
-        document.querySelector('#df-621c1343-762b-4836-85e9-ec19579efe04 button.colab-df-convert');
+        document.querySelector('#df-99940cb2-14f9-44f3-af26-5f99866ed6e0 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-621c1343-762b-4836-85e9-ec19579efe04');
+        const element = document.querySelector('#df-99940cb2-14f9-44f3-af26-5f99866ed6e0');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -2659,8 +2722,8 @@ Name: Content, Length: 992, dtype: object
   </div>
 
 
-<div id="df-0aaa5233-d03e-495b-afb0-26eb89bbf8f5">
-  <button class="colab-df-quickchart" onclick="quickchart('df-0aaa5233-d03e-495b-afb0-26eb89bbf8f5')"
+<div id="df-a75299fb-da7b-421f-bcb9-e1c35a80a137">
+  <button class="colab-df-quickchart" onclick="quickchart('df-a75299fb-da7b-421f-bcb9-e1c35a80a137')"
             title="Suggest charts"
             style="display:none;">
 
@@ -2779,7 +2842,7 @@ Name: Content, Length: 992, dtype: object
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-0aaa5233-d03e-495b-afb0-26eb89bbf8f5 button');
+        document.querySelector('#df-a75299fb-da7b-421f-bcb9-e1c35a80a137 button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
@@ -2912,7 +2975,7 @@ Similarity Kalimat 4 dan Kalimat 5: 0.0556
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-a4fd90c8-6944-4983-834d-be278ae9f667" class="colab-df-container">
+  <div id="df-b06f48f8-f5e3-473b-bb74-86822f31a6b0" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -2985,7 +3048,7 @@ Similarity Kalimat 4 dan Kalimat 5: 0.0556
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-a4fd90c8-6944-4983-834d-be278ae9f667')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-b06f48f8-f5e3-473b-bb74-86822f31a6b0')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -3037,12 +3100,12 @@ Similarity Kalimat 4 dan Kalimat 5: 0.0556
 
     <script>
       const buttonEl =
-        document.querySelector('#df-a4fd90c8-6944-4983-834d-be278ae9f667 button.colab-df-convert');
+        document.querySelector('#df-b06f48f8-f5e3-473b-bb74-86822f31a6b0 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-a4fd90c8-6944-4983-834d-be278ae9f667');
+        const element = document.querySelector('#df-b06f48f8-f5e3-473b-bb74-86822f31a6b0');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -3062,8 +3125,8 @@ Similarity Kalimat 4 dan Kalimat 5: 0.0556
   </div>
 
 
-<div id="df-6417e50e-2eea-43bd-a6d0-8a872c9963f8">
-  <button class="colab-df-quickchart" onclick="quickchart('df-6417e50e-2eea-43bd-a6d0-8a872c9963f8')"
+<div id="df-a1a3dee9-8238-40d8-b24b-51335d479a8b">
+  <button class="colab-df-quickchart" onclick="quickchart('df-a1a3dee9-8238-40d8-b24b-51335d479a8b')"
             title="Suggest charts"
             style="display:none;">
 
@@ -3182,7 +3245,7 @@ Similarity Kalimat 4 dan Kalimat 5: 0.0556
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-6417e50e-2eea-43bd-a6d0-8a872c9963f8 button');
+        document.querySelector('#df-a1a3dee9-8238-40d8-b24b-51335d479a8b button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
@@ -3217,7 +3280,7 @@ Similarity Kalimat 4 dan Kalimat 5: 0.0556
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/44685e1459bb35b342bda0f016881b7ffbddd7e90c931816d277b3190f435491.png" src="../_images/44685e1459bb35b342bda0f016881b7ffbddd7e90c931816d277b3190f435491.png" />
+<img alt="../_images/b2f5f0c55e0dea5d17193df13e9f2966c94dbb740b39ce33b63c2589c0dd2b1d.png" src="../_images/b2f5f0c55e0dea5d17193df13e9f2966c94dbb740b39ce33b63c2589c0dd2b1d.png" />
 </div>
 </div>
 </section>
@@ -3312,7 +3375,7 @@ Kalimat: Namun setelah dilakukan negosiasi terhadap perusahaan untuk setidaknya 
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-60659bdd-25d4-411c-8636-2b364ba05704" class="colab-df-container">
+  <div id="df-a7d39a23-2a87-464f-8dda-4d2854578d15" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -3386,7 +3449,7 @@ Kalimat: Namun setelah dilakukan negosiasi terhadap perusahaan untuk setidaknya 
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-60659bdd-25d4-411c-8636-2b364ba05704')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-a7d39a23-2a87-464f-8dda-4d2854578d15')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -3438,12 +3501,12 @@ Kalimat: Namun setelah dilakukan negosiasi terhadap perusahaan untuk setidaknya 
 
     <script>
       const buttonEl =
-        document.querySelector('#df-60659bdd-25d4-411c-8636-2b364ba05704 button.colab-df-convert');
+        document.querySelector('#df-a7d39a23-2a87-464f-8dda-4d2854578d15 button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-60659bdd-25d4-411c-8636-2b364ba05704');
+        const element = document.querySelector('#df-a7d39a23-2a87-464f-8dda-4d2854578d15');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -3463,8 +3526,8 @@ Kalimat: Namun setelah dilakukan negosiasi terhadap perusahaan untuk setidaknya 
   </div>
 
 
-<div id="df-6b3f5f1f-90ef-4d02-a61e-085d52c47a00">
-  <button class="colab-df-quickchart" onclick="quickchart('df-6b3f5f1f-90ef-4d02-a61e-085d52c47a00')"
+<div id="df-340765ab-a61e-461d-a642-a10cbf4ccb9b">
+  <button class="colab-df-quickchart" onclick="quickchart('df-340765ab-a61e-461d-a642-a10cbf4ccb9b')"
             title="Suggest charts"
             style="display:none;">
 
@@ -3583,7 +3646,7 @@ Kalimat: Namun setelah dilakukan negosiasi terhadap perusahaan untuk setidaknya 
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-6b3f5f1f-90ef-4d02-a61e-085d52c47a00 button');
+        document.querySelector('#df-340765ab-a61e-461d-a642-a10cbf4ccb9b button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
@@ -3688,7 +3751,7 @@ Kalimat: Namun setelah dilakukan negosiasi terhadap perusahaan untuk setidaknya 
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-f0c7ce1f-7d4a-4821-9e98-201f1daf90ca" class="colab-df-container">
+  <div id="df-5ddaf816-bf27-4349-9a56-c3057e18612d" class="colab-df-container">
     <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -3810,7 +3873,7 @@ Kalimat: Namun setelah dilakukan negosiasi terhadap perusahaan untuk setidaknya 
     <div class="colab-df-buttons">
 
   <div class="colab-df-container">
-    <button class="colab-df-convert" onclick="convertToInteractive('df-f0c7ce1f-7d4a-4821-9e98-201f1daf90ca')"
+    <button class="colab-df-convert" onclick="convertToInteractive('df-5ddaf816-bf27-4349-9a56-c3057e18612d')"
             title="Convert this dataframe to an interactive table."
             style="display:none;">
 
@@ -3862,12 +3925,12 @@ Kalimat: Namun setelah dilakukan negosiasi terhadap perusahaan untuk setidaknya 
 
     <script>
       const buttonEl =
-        document.querySelector('#df-f0c7ce1f-7d4a-4821-9e98-201f1daf90ca button.colab-df-convert');
+        document.querySelector('#df-5ddaf816-bf27-4349-9a56-c3057e18612d button.colab-df-convert');
       buttonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
 
       async function convertToInteractive(key) {
-        const element = document.querySelector('#df-f0c7ce1f-7d4a-4821-9e98-201f1daf90ca');
+        const element = document.querySelector('#df-5ddaf816-bf27-4349-9a56-c3057e18612d');
         const dataTable =
           await google.colab.kernel.invokeFunction('convertToInteractive',
                                                     [key], {});
@@ -3887,8 +3950,8 @@ Kalimat: Namun setelah dilakukan negosiasi terhadap perusahaan untuk setidaknya 
   </div>
 
 
-<div id="df-5b3cf992-df1d-4ab5-b6ea-8afbfe29a6ca">
-  <button class="colab-df-quickchart" onclick="quickchart('df-5b3cf992-df1d-4ab5-b6ea-8afbfe29a6ca')"
+<div id="df-ab3fda6b-62ed-4f32-8138-3331769b182c">
+  <button class="colab-df-quickchart" onclick="quickchart('df-ab3fda6b-62ed-4f32-8138-3331769b182c')"
             title="Suggest charts"
             style="display:none;">
 
@@ -4007,7 +4070,7 @@ Kalimat: Namun setelah dilakukan negosiasi terhadap perusahaan untuk setidaknya 
     }
     (() => {
       let quickchartButtonEl =
-        document.querySelector('#df-5b3cf992-df1d-4ab5-b6ea-8afbfe29a6ca button');
+        document.querySelector('#df-ab3fda6b-62ed-4f32-8138-3331769b182c button');
       quickchartButtonEl.style.display =
         google.colab.kernel.accessAllowed ? 'block' : 'none';
     })();
@@ -4229,7 +4292,7 @@ Kalimat: Namun setelah dilakukan negosiasi terhadap perusahaan untuk setidaknya 
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Ekstraksi Kata Kunci pada dokumen</p>
+        <p class="prev-next-title">UAS Pencarian &amp; Penambangan Web</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
